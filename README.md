@@ -1,18 +1,51 @@
-# Apresentação TCC - Além das Métricas
+# Apresentação Monografia - Machine Learning para Predição de Diabetes
 
-Apresentação moderna e minimalista para TCC sobre Machine Learning e Análise de Comportamento Preditivo para Risco de Diabetes.
+Apresentação moderna e interativa para defesa de monografia sobre **Machine Learning aplicado à predição de diabetes**, desenvolvida com HTML, CSS e JavaScript puros.
 
-## 🎯 Características
+## 🎯 Sobre o Projeto
 
-- **Design Minimalista**: Inspirado no padrão Apple Inc.
-- **Responsivo**: Funciona em desktop, tablet e mobile
-- **Animações Suaves**: Transições e animações pertinentes
-- **Navegação Intuitiva**: Múltiplas formas de navegar
-- **Otimizado para Apresentação**: Foco no conteúdo essencial
+Esta apresentação foi desenvolvida para a defesa de uma monografia que explora técnicas de Machine Learning para predição de diabetes, incluindo:
 
-## 🚀 Como Usar
+- **Análise Exploratória de Dados (AED)**
+- **Pré-processamento de dados** (tratamento de outliers, normalização, balanceamento com SMOTE)
+- **Implementação de múltiplos algoritmos** de ML
+- **Otimização de hiperparâmetros**
+- **Avaliação e comparação de modelos**
+- **Análise de resultados** com métricas específicas para problemas de saúde
 
-### Navegação
+## ✨ Características Técnicas
+
+- **Design Responsivo**: Adaptável a diferentes tamanhos de tela
+- **Navegação Fluida**: Múltiplas formas de navegação entre slides
+- **Animações Suaves**: Transições elegantes entre conteúdos
+- **Controles Intuitivos**: Teclado, mouse, touch e botões visuais
+- **Modular**: Cada slide é um arquivo HTML independente com CSS próprio
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- Servidor local (opcional, mas recomendado)
+
+### Execução Local
+
+```bash
+# Opção 1: Servidor HTTP simples com Python
+python -m http.server 8000
+
+# Opção 2: Servidor com Node.js (se tiver instalado)
+npx serve .
+
+# Opção 3: Abrir diretamente no navegador
+# Simplesmente abra o arquivo index.html
+```
+
+### Acesso
+
+Abra no navegador: `http://localhost:8000` ou diretamente o arquivo `index.html`
+
+## 🎮 Controles de Navegação
 
 - **Setas do Teclado**: ← → para navegar entre slides
 - **Espaço**: Próximo slide
@@ -23,46 +56,80 @@ Apresentação moderna e minimalista para TCC sobre Machine Learning e Análise 
 - **Toque (Mobile)**: Swipe para navegar
 - **Botões na Tela**: Controles visuais na parte inferior
 
-### Estrutura dos Slides
+### Estrutura da Apresentação
 
-1. **Slide 1**: Título e apresentação
-2. **Slide 2**: O problema de saúde pública
-3. **Slide 3**: Objetivos e justificativa
-4. **Slide 4**: Tese central
-5. **Slide 5**: Abordagem metodológica
-6. **Slide 6**: Entendimento dos dados
-7. **Slide 7**: Tratamento dos zeros
-8. **Slide 8**: Pipeline de preparação
-9. **Slide 9**: Modelagem
-10. **Slide 10**: Avaliação
-11. **Slide 11**: Resultados AED
-12. **Slide 12**: Avaliação quantitativa
-13. **Slide 13**: Otimização de limiar
-14. **Slide 14**: Avaliação qualitativa
-15. **Slide 15**: Modelo superior
-16. **Slide 16**: Conclusões
-17. **Slide 17**: Trabalhos futuros
-18. **Slide 18**: Agradecimentos
+A apresentação contém **30 slides organizados** cobrindo todo o processo de desenvolvimento:
 
-## 📊 Inserindo Gráficos
+1. **Slides 1-5**: Introdução, problema, objetivos e metodologia
+2. **Slides 6-10**: Entendimento e preparação dos dados
+3. **Slides 11-15**: Análise Exploratória de Dados (AED)
+4. **Slides 16-20**: Pré-processamento (outliers, normalização, SMOTE)
+5. **Slides 21-25**: Modelagem e treinamento
+6. **Slides 26-30**: Resultados, otimização e conclusões
 
-Os slides estão preparados para receber imagens nos locais marcados como "placeholder". Para adicionar suas figuras:
+### Assets Disponíveis
 
-1. Substitua os elementos com classe `image-placeholder` pelo código HTML da imagem:
+O projeto inclui gráficos e visualizações organizados por categoria:
+
+- **AED**: Análise exploratória (AED-01.png a AED-08.png)
+- **Pré-processamento**: PRE-PROCESS-01.png, PRE-PROCESS-02.png
+- **Tratamento de Outliers**: IQR-01.png a IQR-03.png, NORMAL-01.png
+- **Balanceamento**: SMOTE-01.png
+- **Otimização**: OTIMIZA-01.png a OTIMIZA-07.png
+- **Resultados**: RESULT-TREINA-01.png a RESULT-TREINA-06.png
+
+## 📊 Conteúdo Técnico da Monografia
+
+### Metodologia
+
+- **Framework**: CRISP-DM (Cross-Industry Standard Process for Data Mining)
+- **Dataset**: Pima Indians Diabetes Database
+- **Linguagem**: Python com bibliotecas científicas (scikit-learn, pandas, matplotlib, seaborn)
+
+### Algoritmos Implementados
+
+1. **Regressão Logística**
+2. **K-Nearest Neighbors (KNN)**
+3. **Support Vector Machine (SVM)**
+4. **Decision Tree**
+5. **Random Forest**
+6. **Gradient Boosting**
+7. **Neural Networks (MLP)**
+
+### Técnicas de Pré-processamento
+
+- **Tratamento de Outliers**: Método IQR (Interquartile Range)
+- **Normalização**: StandardScaler e MinMaxScaler
+- **Balanceamento**: SMOTE (Synthetic Minority Oversampling Technique)
+- **Seleção de Features**: Análise de correlação e importância
+
+### Métricas de Avaliação
+
+- **Acurácia**: Precisão geral do modelo
+- **Precisão**: Taxa de verdadeiros positivos
+- **Recall (Sensibilidade)**: Capacidade de detectar casos positivos
+- **F1-Score**: Harmônica entre precisão e recall
+- **AUC-ROC**: Área sob a curva ROC
+- **Matriz de Confusão**: Análise detalhada de erros
+
+1. Substitua os elementos com classe `image-placeholder` pelo caminho correto da imagem:
 
    ```html
    <div class="chart-container">
-     <img src="caminho/para/sua/figura.png" alt="Descrição da figura" />
+     <img
+       src="assets/AED-01.png"
+       alt="Análise Exploratória - Distribuição de Classes"
+     />
    </div>
    ```
 
-2. Figuras específicas mencionadas:
-   - **Slide 5**: Figura 22 - Ciclo de vida da mineração de dados (CRISP-DM)
-   - **Slide 11**: Figura 23 (Outcome) e Figura 30 (SkinThickness)
-   - **Slide 12**: Figura 37 - Painel completo de performance
-   - **Slide 13**: Figura 46 - Comparação das Matrizes de Confusão
-   - **Slide 14**: Figura 47 - Análise dos 4 melhores modelos
-   - **Slide 15**: Figura 47 - Random Forest em destaque
+2. **Exemplos de uso dos assets disponíveis**:
+   - **Análise Exploratória**: `assets/AED-01.png` a `assets/AED-08.png`
+   - **Pré-processamento**: `assets/PRE-PROCESS-01.png`, `assets/PRE-PROCESS-02.png`
+   - **Tratamento de Outliers**: `assets/IQR-01.png` a `assets/IQR-03.png`
+   - **Balanceamento SMOTE**: `assets/SMOTE-01.png`
+   - **Otimização**: `assets/OTIMIZA-01.png` a `assets/OTIMIZA-07.png`
+   - **Resultados**: `assets/RESULT-TREINA-01.png` a `assets/RESULT-TREINA-06.png`
 
 ## 🎨 Personalização
 
@@ -118,69 +185,76 @@ A apresentação se adapta automaticamente a diferentes tamanhos de tela:
 4. **Gráficos**: Adicione as figuras com boa resolução
 5. **Tempo**: Pratique os tempos de transição
 
-## 📂 Estrutura de Arquivos
+## � Estrutura do Projeto
 
 ```
 apresentacao-monografia/
-├── index.html          # Arquivo principal
-├── styles.css          # Estilos CSS
-├── script.js           # Funcionalidades JavaScript
-├── README.md           # Este arquivo
-└── assets/             # Pasta para imagens (criar se necessário)
-    ├── figura-22.png   # Ciclo CRISP-DM
-    ├── figura-23.png   # Outcome
-    ├── figura-30.png   # SkinThickness
-    ├── figura-37.png   # Painel performance
-    ├── figura-46.png   # Matrizes confusão
-    └── figura-47.png   # Análise modelos
+├── index.html              # Página principal da apresentação
+├── script.js               # Lógica de navegação e controles
+├── styles.css              # Estilos globais
+├── global.css              # Estilos adicionais
+├── guia-rapido.html        # Guia rápido de navegação
+├── index-original.html     # Versão original (backup)
+├── Monografia.pdf          # Documento da monografia
+├── README.md               # Este arquivo
+├── teste.py                # Script Python para testes
+├── Imagem1.png             # Imagem adicional
+├── assets/                 # Gráficos e visualizações
+│   ├── AED-*.png          # Análise exploratória
+│   ├── PRE-PROCESS-*.png  # Pré-processamento
+│   ├── IQR-*.png          # Tratamento de outliers
+│   ├── NORMAL-*.png       # Normalização
+│   ├── SMOTE-*.png        # Balanceamento de dados
+│   ├── OTIMIZA-*.png      # Otimização de modelos
+│   └── RESULT-TREINA-*.png # Resultados de treinamento
+└── slides/                 # Slides individuais
+    ├── slide-*.html       # Arquivos HTML dos slides
+    ├── slide-*.css        # Estilos específicos por slide
+    ├── slide-*-backup.html # Versões de backup
+    └── slide-*-new.html   # Versões atualizadas
 ```
 
 ## 🌟 Próximos Passos
 
-1. **Adicionar Figuras**: Insira as imagens nos locais apropriados
-2. **Testar Navegação**: Verifique todos os controles
-3. **Ajustar Conteúdo**: Modifique textos se necessário
-4. **Praticar**: Ensaie a apresentação com os controles
-5. **Expandir**: Adicione mais slides se necessário usando `presentationController.addSlide()`
+1. **Revisar Conteúdo**: Verifique se todos os slides estão atualizados
+2. **Testar Navegação**: Teste todos os controles de navegação
+3. **Verificar Assets**: Confirme se todas as imagens estão sendo carregadas
+4. **Praticar Apresentação**: Ensaie com os controles reais
+5. **Backup**: Mantenha uma versão PDF como segurança
+6. **Otimizar Performance**: Comprima imagens se necessário
 
-## 🎨 Exemplos de Uso Avançado
+## 🔧 Desenvolvimento e Contribuição
 
-### Adicionar Slide Dinamicamente
+### Tecnologias Utilizadas
 
-```javascript
-// No console do navegador
-presentationController.addSlide(`
-    <div class="slide-content">
-        <h2 class="slide-title">Novo Slide</h2>
-        <p>Conteúdo do novo slide</p>
-    </div>
-`);
-```
+- **HTML5**: Estrutura semântica
+- **CSS3**: Animações, Grid, Flexbox, Custom Properties
+- **JavaScript ES6+**: Classes, Modules, Async/Await
+- **Responsive Design**: Mobile-first approach
 
-### Ir para Slide Específico
+### Arquitetura
 
-```javascript
-// Por índice
-presentationController.goToSlide(5);
+- **Modular**: Cada slide é independente
+- **Escalável**: Fácil adição de novos slides
+- **Manutenível**: Código bem estruturado e comentado
+- **Performante**: Lazy loading e otimizações
 
-// Por ID
-presentationController.goToSlideById("slide-10");
-```
+## 📈 Resultados da Pesquisa
 
-### Informações do Slide Atual
+A monografia demonstrou que:
 
-```javascript
-console.log(presentationController.getCurrentSlideInfo());
-```
+- **Random Forest** obteve a melhor performance geral
+- **SMOTE** melhorou significativamente o recall para casos positivos
+- **Normalização** foi essencial para algoritmos baseados em distância
+- **Otimização de hiperparâmetros** aumentou a performance em 8-12%
 
-## 📞 Suporte
+## 📞 Informações Adicionais
 
-Para dúvidas sobre customização ou funcionalidades, consulte:
-
-- Código comentado nos arquivos
-- Console do navegador para debug
-- Variável global `presentationController` para controle programático
+- **Repositório**: [github.com/guiozores/apresentacao-diabetes-ML](https://github.com/guiozores/apresentacao-diabetes-ML)
+- **Licença**: MIT License
+- **Versão**: 1.0.0
+- **Compatibilidade**: Navegadores modernos (Chrome 80+, Firefox 75+, Safari 13+)
 
 ---
 
-**Boa apresentação! 🎉**
+**🎯 Preparado para uma apresentação de sucesso! 🚀**
