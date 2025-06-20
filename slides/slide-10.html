@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 10 - Divisão Estratificada | Além das Métricas</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-10.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide">
+        <div class="slide-content">
+          <h2 class="slide-title">Divisão Estratificada dos Dados</h2>
+          <h3 class="slide-subtitle">Preservando a Proporção das Classes</h3>
+
+          <div class="stratification-container">
+            <div class="dataset-overview">
+              <h4>Dataset Completo (768 amostras)</h4>
+              <div class="class-distribution">
+                <span class="class-info">Não Diabético: 65% (500)</span>
+                <span class="class-info">Diabético: 35% (268)</span>
+              </div>
+            </div>
+
+            <div class="arrow-down">↓</div>
+
+            <div class="stratification-visual">
+              <div class="section train-section">
+                <div class="section-header">Treino (60%)</div>
+                <div class="section-content">
+                  <div class="class-segment class-0">
+                    <span>300 (65%)</span>
+                  </div>
+                  <div class="class-segment class-1">
+                    <span>160 (35%)</span>
+                  </div>
+                </div>
+                <div class="section-total">460 amostras</div>
+              </div>
+
+              <div class="section validation-section">
+                <div class="section-header">Validação (20%)</div>
+                <div class="section-content">
+                  <div class="class-segment class-0">
+                    <span>100 (65%)</span>
+                  </div>
+                  <div class="class-segment class-1">
+                    <span>54 (35%)</span>
+                  </div>
+                </div>
+                <div class="section-total">154 amostras</div>
+              </div>
+
+              <div class="section test-section">
+                <div class="section-header">Teste (20%)</div>
+                <div class="section-content">
+                  <div class="class-segment class-0">
+                    <span>100 (65%)</span>
+                  </div>
+                  <div class="class-segment class-1">
+                    <span>54 (35%)</span>
+                  </div>
+                </div>
+                <div class="section-total">154 amostras</div>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div class="legend-item">
+                <div class="legend-color class-0"></div>
+                <span>Não Diabético (65%)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color class-1"></div>
+                <span>Diabético (35%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="navigation">
+      <a href="slide-9.html" class="nav-button">← Anterior</a>
+      <a href="../index.html" class="nav-button">🏠 Menu</a>
+      <a href="slide-11.html" class="nav-button">Próximo →</a>
+    </div>
+
+    <div class="slide-counter">Slide 10 / 32</div>
+    <a href="../index.html" class="home-button">🏠</a>
+  </body>
+</html>

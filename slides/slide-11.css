@@ -1,0 +1,56 @@
+/* Slide 11: Remoção de Outliers - Estilos Específicos */
+
+.outlier-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
+}
+
+.formula-box {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.formula-box h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.formula-large {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.5rem 0;
+  font-family: "Courier New", monospace;
+}
+
+.outlier-rule {
+  margin-top: 1.5rem;
+}
+
+.outlier-rule p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+}
+
+.outlier-rule p:first-child {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .outlier-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

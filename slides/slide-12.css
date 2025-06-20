@@ -1,0 +1,215 @@
+/* Slide 12: SMOTE - Estilos Específicos */
+
+.smote-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.before-smote,
+.after-smote {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.before-smote h4,
+.after-smote h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.class-distribution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.class-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.class-bar .bar-fill {
+  height: 20px;
+  border-radius: 4px;
+  transition: width 2s ease;
+}
+
+.majority .bar-fill,
+.balanced-0 .bar-fill {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.minority .bar-fill,
+.balanced-1 .bar-fill {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.scatter-before,
+.scatter-after {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+
+.majority-point {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.minority-point {
+  animation: fadeIn 0.5s ease forwards 0.5s;
+}
+
+.synthetic-point {
+  animation: fadeIn 0.5s ease forwards 1s;
+}
+
+.arrow-transform {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+.smote-algorithm {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.smote-algorithm h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.algorithm-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.algo-step {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 122, 255, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-blue);
+  font-size: 0.9rem;
+}
+
+.smote-explanation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.smote-stats {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+  min-width: 250px;
+}
+
+.smote-stats h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  background: var(--background);
+  border-radius: 8px;
+}
+
+.stats-item.balanced {
+  background: rgba(52, 199, 89, 0.1);
+  border-left: 3px solid #34c759;
+}
+
+.class-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.class-count {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.arrow-right {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.smote-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.legend-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Animações específicas do SMOTE */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .before-after {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .smote-explanation {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .smote-stats {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .arrow-right {
+    transform: rotate(90deg);
+  }
+
+  .arrow-transform {
+    transform: rotate(90deg);
+  }
+}

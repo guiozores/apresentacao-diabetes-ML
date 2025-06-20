@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 9 - Tratamento dos Zeros | Além das Métricas</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-9.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide">
+        <div class="slide-content">
+          <h2 class="slide-title">Estudo Metodológico: Tratamento dos Zeros</h2>
+
+          <div class="study-content">
+            <div class="study-approach">
+              <h3 class="approach-title">
+                Análise Comparativa de 5 Estratégias
+              </h3>
+            </div>
+
+            <div class="strategies-grid">
+              <div class="strategy-item">
+                <h4>Dados Brutos</h4>
+                <div class="strategy-visual">
+                  <div class="data-points">
+                    <div class="point valid"></div>
+                    <div class="point invalid"></div>
+                    <div class="point valid"></div>
+                    <div class="point invalid"></div>
+                  </div>
+                  <p class="strategy-desc">Mantém valores originais</p>
+                </div>
+              </div>
+              <div class="strategy-item">
+                <h4>Exclusão</h4>
+                <div class="strategy-visual">
+                  <div class="data-points">
+                    <div class="point valid"></div>
+                    <div class="point removed"></div>
+                    <div class="point valid"></div>
+                    <div class="point removed"></div>
+                  </div>
+                  <p class="strategy-desc">Remove registros inválidos</p>
+                </div>
+              </div>
+              <div class="strategy-item">
+                <h4>Imputação (Mediana)</h4>
+                <div class="strategy-visual">
+                  <div class="median-chart">
+                    <div class="bar" style="height: 30%"></div>
+                    <div class="bar median" style="height: 60%"></div>
+                    <div class="bar" style="height: 40%"></div>
+                  </div>
+                  <p class="strategy-desc">Substitui pela mediana</p>
+                </div>
+              </div>
+              <div class="strategy-item">
+                <h4>Imputação (KNN)</h4>
+                <div class="strategy-visual">
+                  <div class="knn-chart">
+                    <svg width="120" height="100" viewBox="0 0 120 100">
+                      <!-- Axes -->
+                      <line
+                        x1="15"
+                        y1="85"
+                        x2="105"
+                        y2="85"
+                        stroke="#ccc"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="15"
+                        y1="85"
+                        x2="15"
+                        y2="15"
+                        stroke="#ccc"
+                        stroke-width="1"
+                      />
+
+                      <!-- Data points (known) -->
+                      <circle cx="25" cy="70" r="3" fill="#007AFF" />
+                      <circle cx="35" cy="60" r="3" fill="#007AFF" />
+                      <circle cx="45" cy="75" r="3" fill="#007AFF" />
+                      <circle cx="50" cy="30" r="3" fill="#34c759" />
+                      <circle cx="65" cy="40" r="3" fill="#34c759" />
+                      <circle cx="70" cy="65" r="3" fill="#34c759" />
+                      <circle cx="80" cy="35" r="3" fill="#007AFF" />
+
+                      <!-- Target point -->
+                      <circle
+                        cx="60"
+                        cy="50"
+                        r="4"
+                        fill="#ff6b35"
+                        stroke="#fff"
+                        stroke-width="2"
+                      />
+
+                      <!-- Distance lines -->
+                      <line
+                        x1="60"
+                        y1="50"
+                        x2="65"
+                        y2="40"
+                        stroke="#34c759"
+                        stroke-width="1"
+                        stroke-dasharray="2,2"
+                      />
+                      <line
+                        x1="60"
+                        y1="50"
+                        x2="70"
+                        y2="65"
+                        stroke="#34c759"
+                        stroke-width="1"
+                        stroke-dasharray="2,2"
+                      />
+                      <line
+                        x1="60"
+                        y1="50"
+                        x2="50"
+                        y2="30"
+                        stroke="#34c759"
+                        stroke-width="1"
+                        stroke-dasharray="2,2"
+                      />
+                    </svg>
+                  </div>
+                  <p class="strategy-desc">K=3 vizinhos mais próximos</p>
+                </div>
+              </div>
+              <div class="strategy-item">
+                <h4>Imputação (Regressão Linear)</h4>
+                <div class="strategy-visual">
+                  <div class="regression-chart">
+                    <svg width="80" height="60" viewBox="0 0 80 60">
+                      <line
+                        x1="0"
+                        y1="50"
+                        x2="80"
+                        y2="10"
+                        stroke="#007AFF"
+                        stroke-width="2"
+                      />
+                      <circle cx="20" cy="40" r="3" fill="#007AFF" />
+                      <circle cx="40" cy="30" r="3" fill="#007AFF" />
+                      <circle cx="60" cy="20" r="3" fill="#ff6b35" />
+                    </svg>
+                  </div>
+                  <p class="strategy-desc">Prediz por regressão</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="navigation">
+      <a href="slide-8.html" class="nav-button">← Anterior</a>
+      <a href="../index.html" class="nav-button">🏠 Menu</a>
+      <a href="slide-10.html" class="nav-button">Próximo →</a>
+    </div>
+
+    <div class="slide-counter">Slide 9 / 32</div>
+    <a href="../index.html" class="home-button">🏠</a>
+  </body>
+</html>

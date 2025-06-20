@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 28 - Análise dos Resultados</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-28.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide-content">
+        <h2 class="slide-title">Pré-processamento de Dados</h2>
+        <h3 class="slide-subtitle">Análise dos Resultados</h3>
+
+        <div class="results-analysis-grid-enhanced">
+          <div class="analysis-column">
+            <div class="analysis-section-enhanced">
+              <div class="method-header knn-header">
+                <h4>K-Nearest Neighbors (KNN)</h4>
+                <span class="method-tag">Dados Homogêneos</span>
+              </div>
+              <div class="analysis-content-enhanced">
+                <div class="findings-group">
+                  <div class="finding-positive">
+                    <div class="status-icon positive">✓</div>
+                    <span
+                      >Distribuição plausível, eliminou zeros sem criar outliers
+                      artificiais</span
+                    >
+                  </div>
+                  <div class="finding-positive">
+                    <div class="status-icon positive">✓</div>
+                    <span>Boa homogeneidade em SkinThickness</span>
+                  </div>
+                </div>
+                <div class="findings-group">
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span
+                      >Não alterou significativamente a importância das
+                      features</span
+                    >
+                  </div>
+                </div>
+                <div class="method-conclusion rejected">
+                  <strong>Resultado:</strong> Descartado - Sem benefício real
+                </div>
+              </div>
+            </div>
+
+            <div class="analysis-section-enhanced">
+              <div class="method-header median-header">
+                <h4>Imputação por Mediana</h4>
+                <span class="method-tag">Distorção Artificial</span>
+              </div>
+              <div class="analysis-content-enhanced">
+                <div class="findings-group">
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span
+                      >Pico artificial no valor da mediana (visível nos
+                      histogramas)</span
+                    >
+                  </div>
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span>Linha horizontal constante na dispersão</span>
+                  </div>
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span
+                      >Redução da variância natural do conjunto de dados</span
+                    >
+                  </div>
+                </div>
+                <div class="method-conclusion rejected">
+                  <strong>Resultado:</strong> Rejeitado - Distorce distribuição
+                  original
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analysis-column">
+            <div class="analysis-section-enhanced">
+              <div class="method-header regression-header">
+                <h4>Regressão Linear</h4>
+                <span class="method-tag">Sofisticação Desnecessária</span>
+              </div>
+              <div class="analysis-content-enhanced">
+                <div class="findings-group">
+                  <div class="finding-positive">
+                    <div class="status-icon positive">✓</div>
+                    <span>Distribuições visualmente coerentes</span>
+                  </div>
+                </div>
+                <div class="findings-group">
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span>Padrão quase idêntico aos dados originais</span>
+                  </div>
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span>Não justifica esforço de implementação</span>
+                  </div>
+                </div>
+                <div class="method-conclusion rejected">
+                  <strong>Resultado:</strong> Descartado - Sem melhoria
+                  estrutural
+                </div>
+              </div>
+            </div>
+
+            <div class="analysis-section-enhanced">
+              <div class="method-header exclusion-header">
+                <h4>Exclusão de Dados</h4>
+                <span class="method-tag">Perda Crítica</span>
+              </div>
+              <div class="analysis-content-enhanced">
+                <div class="findings-group">
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span
+                      >Remoção de Insulin (29,6%) e SkinThickness (48,7%)</span
+                    >
+                  </div>
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span>Redução substancial do volume amostral</span>
+                  </div>
+                  <div class="finding-negative">
+                    <div class="status-icon negative">✗</div>
+                    <span>Diminuição do poder estatístico</span>
+                  </div>
+                </div>
+                <div class="method-conclusion rejected">
+                  <strong>Resultado:</strong> Rejeitado - Perda crítica de
+                  informação
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-decision-banner">
+          <div class="decision-icon">🎯</div>
+          <div class="decision-content">
+            <strong>Decisão Final:</strong>
+            <span
+              >Prosseguir com <strong>Dados Brutos</strong> + Modelo Robusto
+              (Random Forest)</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="slide-27.html" class="nav-button">← Anterior</a>
+        <a href="../index.html" class="nav-button">🏠 Menu</a>
+        <a href="slide-29.html" class="nav-button">Próximo →</a>
+      </div>
+    </div>
+  </body>
+</html>

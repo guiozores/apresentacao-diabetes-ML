@@ -1,0 +1,7 @@
+/* Slide 1: Título - Estilos Específicos */
+
+/* Layout específico do slide título */
+.title-slide {
+  justify-content: space-between;
+  padding: 2rem 0;
+}

@@ -1,0 +1,17 @@
+/* Slide 9: Tratamento dos Zeros - Estilos Específicos */
+
+/* Este slide usa principalmente estilos globais compartilhados:
+   - .study-content (do global.css)
+   - .study-approach, .approach-title (do global.css)
+   - .strategies-grid (do global.css)
+   - .strategy-item, .strategy-visual (do global.css)
+   - .data-points, .point (do global.css)
+   - .median-chart, .bar (do global.css)
+   - .knn-chart, .regression-chart (do global.css)
+   
+   Apenas espaçamento adicional específico:
+*/
+
+.knn-spacing-buffer {
+  height: 20px;
+}

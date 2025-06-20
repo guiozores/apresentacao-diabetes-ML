@@ -1,0 +1,125 @@
+/* Slide 2: O Problema - Estilos Específicos */
+
+/* ===== PROBLEM LAYOUT (ESPECÍFICO DO SLIDE 2) ===== */
+.problem-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.obesity-chart-container {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+/* Simple Line Chart Styles */
+.simple-line-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.chart-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  padding: 2rem 0;
+}
+
+.chart-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.point-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.point-label {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.point-label strong {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.connecting-line {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark));
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 1px;
+}
+
+.chart-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 107, 53, 0.1);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ff6b35;
+}
+
+.trend-icon {
+  font-size: 2rem;
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+.trend-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS FOR PROBLEM LAYOUT ===== */
+@media (max-width: 768px) {
+  .problem-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .chart-content {
+    max-width: 250px;
+  }
+}

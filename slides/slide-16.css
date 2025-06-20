@@ -1,0 +1,84 @@
+/* Slide 16: Matriz de Correlação - Estilos Específicos */
+
+.aed-image-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
+}
+
+.image-container-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aed-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.image-source {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.key-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-blue);
+}
+
+.point-bullet {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+
+.point-item p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.point-item strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .aed-image-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .point-item {
+    padding: 0.8rem;
+  }
+
+  .point-item p {
+    font-size: 0.95rem;
+  }
+}

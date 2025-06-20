@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apresentação Monografia - Menu Principal</title>
+    <link rel="stylesheet" href="global.css" />
+    <style>
+      .menu-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .menu-title {
+        text-align: center;
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .menu-subtitle {
+        text-align: center;
+        font-size: 1.2em;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .slides-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+      }
+
+      .slide-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .slide-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .slide-card a {
+        display: block;
+        padding: 20px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .slide-number {
+        background: #007acc;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .slide-title {
+        font-size: 1.1em;
+        font-weight: 600;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .slide-description {
+        font-size: 0.9em;
+        color: #666;
+        line-height: 1.4;
+      }
+
+      .section-divider {
+        margin: 40px 0 20px 0;
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: 600;
+        color: #007acc;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-container">
+      <h1 class="menu-title">Análise Preditiva de Diabetes</h1>
+      <p class="menu-subtitle">
+        Apresentação da Monografia - Navegação por Slides
+      </p>
+
+      <div class="section-divider">Introdução e Metodologia</div>
+      <div class="slides-grid">
+        <div class="slide-card">
+          <a href="slides/slide-1.html">
+            <span class="slide-number">Slide 1</span>
+            <div class="slide-title">Introdução</div>
+            <div class="slide-description">
+              Apresentação do tema e objetivos da pesquisa
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-2.html">
+            <span class="slide-number">Slide 2</span>
+            <div class="slide-title">Metodologia</div>
+            <div class="slide-description">
+              Fluxograma da metodologia aplicada
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-3.html">
+            <span class="slide-number">Slide 3</span>
+            <div class="slide-title">Dataset</div>
+            <div class="slide-description">
+              Características do conjunto de dados
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-4.html">
+            <span class="slide-number">Slide 4</span>
+            <div class="slide-title">Variáveis</div>
+            <div class="slide-description">
+              Descrição das variáveis do dataset
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-divider">Análise Exploratória de Dados</div>
+      <div class="slides-grid">
+        <div class="slide-card">
+          <a href="slides/slide-5.html">
+            <span class="slide-number">Slide 5</span>
+            <div class="slide-title">Estatísticas Descritivas</div>
+            <div class="slide-description">
+              Análise descritiva das variáveis
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-6.html">
+            <span class="slide-number">Slide 6</span>
+            <div class="slide-title">Histogramas</div>
+            <div class="slide-description">Distribuição das variáveis</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-7.html">
+            <span class="slide-number">Slide 7</span>
+            <div class="slide-title">Matriz de Correlação</div>
+            <div class="slide-description">Correlações entre variáveis</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-8.html">
+            <span class="slide-number">Slide 8</span>
+            <div class="slide-title">Padrões de Dados Ausentes</div>
+            <div class="slide-description">
+              Análise de valores zero implausíveis
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-9.html">
+            <span class="slide-number">Slide 9</span>
+            <div class="slide-title">Distribuição da Variável Alvo</div>
+            <div class="slide-description">Balanceamento das classes</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-10.html">
+            <span class="slide-number">Slide 10</span>
+            <div class="slide-title">Boxplots por Classe</div>
+            <div class="slide-description">
+              Distribuição das variáveis por classe
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-11.html">
+            <span class="slide-number">Slide 11</span>
+            <div class="slide-title">Detecção de Outliers</div>
+            <div class="slide-description">
+              Identificação de valores atípicos
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-12.html">
+            <span class="slide-number">Slide 12</span>
+            <div class="slide-title">Técnica SMOTE</div>
+            <div class="slide-description">Balanceamento de classes</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-13.html">
+            <span class="slide-number">Slide 13</span>
+            <div class="slide-title">Normalização Z-Score</div>
+            <div class="slide-description">Padronização das variáveis</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-14.html">
+            <span class="slide-number">Slide 14</span>
+            <div class="slide-title">Correlação Glicose-Diabetes</div>
+            <div class="slide-description">
+              Análise específica da variável Glicose
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-15.html">
+            <span class="slide-number">Slide 15</span>
+            <div class="slide-title">Correlação IMC-Diabetes</div>
+            <div class="slide-description">Análise específica do IMC</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-16.html">
+            <span class="slide-number">Slide 16</span>
+            <div class="slide-title">Correlação Idade-Diabetes</div>
+            <div class="slide-description">Análise específica da Idade</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-17.html">
+            <span class="slide-number">Slide 17</span>
+            <div class="slide-title">Correlação Gravidez-Diabetes</div>
+            <div class="slide-description">Análise específica de Gravidez</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-18.html">
+            <span class="slide-number">Slide 18</span>
+            <div class="slide-title">Correlação DPF-Diabetes</div>
+            <div class="slide-description">Análise da Função Pedigrí</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-19.html">
+            <span class="slide-number">Slide 19</span>
+            <div class="slide-title">Correlação Pressão-Diabetes</div>
+            <div class="slide-description">Análise da Pressão Arterial</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-20.html">
+            <span class="slide-number">Slide 20</span>
+            <div class="slide-title">Correlação Pele-Diabetes</div>
+            <div class="slide-description">Análise da Espessura da Pele</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-21.html">
+            <span class="slide-number">Slide 21</span>
+            <div class="slide-title">Taxa de Diabetes por Fatores</div>
+            <div class="slide-description">
+              Análise combinada de fatores de risco
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-22.html">
+            <span class="slide-number">Slide 22</span>
+            <div class="slide-title">Taxa de Diabetes por IMC</div>
+            <div class="slide-description">Classificação por faixas de IMC</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-23.html">
+            <span class="slide-number">Slide 23</span>
+            <div class="slide-title">Principais Achados</div>
+            <div class="slide-description">
+              Resumo dos principais achados da AED
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-divider">Pré-processamento de Dados</div>
+      <div class="slides-grid">
+        <div class="slide-card">
+          <a href="slides/slide-24.html">
+            <span class="slide-number">Slide 24</span>
+            <div class="slide-title">Tratamento de Valores Zero</div>
+            <div class="slide-description">
+              Estratégias para tratamento de dados ausentes
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-25.html">
+            <span class="slide-number">Slide 25</span>
+            <div class="slide-title">Perfis Sintéticos</div>
+            <div class="slide-description">Validação com perfis sintéticos</div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-26.html">
+            <span class="slide-number">Slide 26</span>
+            <div class="slide-title">Diferenças na Distribuição</div>
+            <div class="slide-description">
+              Comparação entre diferentes processamentos
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-27.html">
+            <span class="slide-number">Slide 27</span>
+            <div class="slide-title">Dispersão dos Pontos</div>
+            <div class="slide-description">
+              Visualização dos pontos inseridos
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-28.html">
+            <span class="slide-number">Slide 28</span>
+            <div class="slide-title">Análise dos Resultados</div>
+            <div class="slide-description">
+              Comparação detalhada dos métodos de pré-processamento
+            </div>
+          </a>
+        </div>
+
+        <div class="slide-card">
+          <a href="slides/slide-29.html">
+            <span class="slide-number">Slide 29</span>
+            <div class="slide-title">Principais Achados</div>
+            <div class="slide-description">
+              Resumo dos achados do pré-processamento
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-divider">Conclusões</div>
+      <div class="slides-grid">
+        <div class="slide-card">
+          <a href="slides/slide-30.html">
+            <span class="slide-number">Slide 30</span>
+            <div class="slide-title">Conclusões</div>
+            <div class="slide-description">Conclusões finais do estudo</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

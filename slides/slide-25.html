@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 25 - Perfis Sintéticos para Validação</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-25.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide-content">
+        <h2 class="slide-title">Pré-processamento de Dados</h2>
+        <h3 class="slide-subtitle">Perfis Sintéticos para Validação</h3>
+
+        <div class="synthetic-profiles">
+          <div class="intro-text">
+            <p>
+              Para validação dos modelos, foram criados
+              <strong>6 perfis sintéticos</strong>
+              representando um espectro contínuo de risco para diabetes. Estes
+              perfis serão utilizados posteriormente para análise de
+              plausibilidade dos modelos gerados.
+            </p>
+          </div>
+
+          <div class="profiles-table">
+            <div class="table-header">
+              <div class="header-cell">Perfil de Risco</div>
+              <div class="header-cell">Pregnancies</div>
+              <div class="header-cell">Glucose</div>
+              <div class="header-cell">Blood Pressure</div>
+              <div class="header-cell">Skin Thickness</div>
+              <div class="header-cell">BMI</div>
+              <div class="header-cell">DPF</div>
+              <div class="header-cell">Age</div>
+            </div>
+
+            <div class="table-row severe">
+              <div class="cell profile-name">Diabético Severo</div>
+              <div class="cell">4</div>
+              <div class="cell">200</div>
+              <div class="cell">100</div>
+              <div class="cell">50</div>
+              <div class="cell">40.0</div>
+              <div class="cell">1.50</div>
+              <div class="cell">65</div>
+            </div>
+
+            <div class="table-row moderate">
+              <div class="cell profile-name">Diabético Moderado</div>
+              <div class="cell">2</div>
+              <div class="cell">160</div>
+              <div class="cell">85</div>
+              <div class="cell">35</div>
+              <div class="cell">32.0</div>
+              <div class="cell">0.80</div>
+              <div class="cell">50</div>
+            </div>
+
+            <div class="table-row pre-high">
+              <div class="cell profile-name">Pré-Diabético Alto</div>
+              <div class="cell">4</div>
+              <div class="cell">124</div>
+              <div class="cell">78</div>
+              <div class="cell">30</div>
+              <div class="cell">31.0</div>
+              <div class="cell">0.60</div>
+              <div class="cell">45</div>
+            </div>
+
+            <div class="table-row pre-low">
+              <div class="cell profile-name">Pré-Diabético Baixo</div>
+              <div class="cell">2</div>
+              <div class="cell">115</div>
+              <div class="cell">75</div>
+              <div class="cell">25</div>
+              <div class="cell">30.0</div>
+              <div class="cell">0.40</div>
+              <div class="cell">40</div>
+            </div>
+
+            <div class="table-row low-risk">
+              <div class="cell profile-name">Risco Baixo</div>
+              <div class="cell">0</div>
+              <div class="cell">99</div>
+              <div class="cell">70</div>
+              <div class="cell">22</div>
+              <div class="cell">29.0</div>
+              <div class="cell">0.30</div>
+              <div class="cell">35</div>
+            </div>
+
+            <div class="table-row healthy">
+              <div class="cell profile-name">Saudável</div>
+              <div class="cell">0</div>
+              <div class="cell">85</div>
+              <div class="cell">65</div>
+              <div class="cell">18</div>
+              <div class="cell">22.0</div>
+              <div class="cell">0.15</div>
+              <div class="cell">25</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="slide-24.html" class="nav-button">← Anterior</a>
+        <a href="../index.html" class="nav-button">🏠 Menu</a>
+        <a href="slide-26.html" class="nav-button">Próximo →</a>
+      </div>
+    </div>
+  </body>
+</html>

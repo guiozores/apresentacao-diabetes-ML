@@ -1,0 +1,99 @@
+/* Slide 17 - Correlação Gravidez-Diabetes */
+
+.aed-image-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin: 40px 0;
+}
+
+.image-container-large {
+  flex: 3;
+  text-align: center;
+}
+
+.aed-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-source {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+}
+
+.key-points {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007acc;
+}
+
+.point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.point-bullet {
+  color: #007acc;
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.point-item p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+.point-item strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .aed-image-content {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .key-points {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aed-image-content {
+    gap: 20px;
+  }
+
+  .key-points {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .point-item {
+    gap: 8px;
+  }
+
+  .point-bullet {
+    font-size: 1.2em;
+  }
+
+  .point-item p {
+    font-size: 0.85em;
+  }
+}
