@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 35 - Parâmetros de Treinamento</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-35.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide-content">
+        <h2 class="slide-title">Treinamento dos Modelos</h2>
+        <h3 class="slide-subtitle">Hiperparâmetros Utilizados</h3>
+
+        <div class="table-container">
+          <h4 class="table-title">
+            Tabela 13 – Modelos e parâmetros utilizados no treinamento
+          </h4>
+
+          <div class="parameters-table">
+            <div class="table-header">
+              <div class="header-model">Modelo</div>
+              <div class="header-params">Hiperparâmetros Utilizados</div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">Random Forest</div>
+              <div class="model-params">
+                criterion='gini', n_estimators=100, max_depth=10,
+                random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">Gradient Boosting</div>
+              <div class="model-params">
+                criterion='friedman_mse', learning_rate=0.1, max_depth=3,
+                n_estimators=100, subsample=1.0, random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">XGBoost</div>
+              <div class="model-params">
+                booster='gbtree', learning_rate=0.3, max_depth=6,
+                n_estimators=100, random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">Decision Tree</div>
+              <div class="model-params">
+                criterion='gini', max_depth=10, min_samples_leaf=1,
+                min_samples_split=2, random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">AdaBoost</div>
+              <div class="model-params">
+                learning_rate=1, n_estimators=100, random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">SVM</div>
+              <div class="model-params">
+                C=1.0, cache_size=200, coef0=0.0, kernel='rbf', max_iter=-1,
+                random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">Logistic Regression</div>
+              <div class="model-params">
+                C=1.0, max_iter=1000, tol=0.0001, random_state=42
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">kNN</div>
+              <div class="model-params">
+                leaf_size=30, metric='minkowski', n_neighbors=5
+              </div>
+            </div>
+
+            <div class="table-row">
+              <div class="model-name">Naive Bayes</div>
+              <div class="model-params">var_smoothing=1e-09</div>
+            </div>
+          </div>
+
+          <div class="table-source">
+            <p>Fonte: AKMEŞE. (2022).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="slide-34.html" class="nav-button">← Anterior</a>
+        <a href="../index.html" class="nav-button">🏠 Menu</a>
+        <a href="slide-36.html" class="nav-button">Próximo →</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+/* Slide 35 - Parâmetros de Treinamento */
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.table-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.parameters-table {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--background);
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background: linear-gradient(135deg, #007aff 0%, #0051d5 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.header-model,
+.header-params {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background: var(--surface);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.model-name {
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: #f8f9fa;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.model-params {
+  padding: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.table-source {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.table-source p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .table-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .model-params {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    padding: 1rem 0;
+  }
+
+  .table-title {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .header-model,
+  .header-params,
+  .model-name,
+  .model-params {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .model-name {
+    background: linear-gradient(135deg, #007aff 0%, #0051d5 100%);
+    color: white;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .model-params {
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .header-params {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-container {
+    gap: 1rem;
+  }
+
+  .table-title {
+    font-size: 1rem;
+  }
+
+  .model-name,
+  .model-params {
+    padding: 0.75rem;
+  }
+
+  .model-params {
+    font-size: 0.75rem;
+  }
+}

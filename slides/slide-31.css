@@ -1,0 +1,139 @@
+/* Slide 31 - Remoção de Outliers IQR-01 */
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  flex: 1;
+}
+
+.image-container {
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.main-image {
+  max-width: 95%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+.image-source {
+  margin-top: 8px;
+  font-size: 0.8em;
+  color: #666;
+  font-style: italic;
+}
+
+.description-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.description-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-top: 3px solid #007acc;
+  max-width: 800px;
+  width: 100%;
+}
+
+.description-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.description-bullet {
+  color: #007acc;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.description-item p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.85em;
+}
+
+.description-item strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .description-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .description-item {
+    min-width: 200px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .description-content {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .main-image {
+    max-height: 75vh;
+    border-radius: 6px;
+  }
+
+  .description-item p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    gap: 10px;
+  }
+
+  .description-content {
+    padding: 10px;
+  }
+
+  .main-image {
+    max-height: 65vh;
+  }
+}

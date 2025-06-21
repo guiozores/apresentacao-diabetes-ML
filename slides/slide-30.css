@@ -1,0 +1,205 @@
+/* Slide 30 - Estratificação dos Dados */
+
+.stratification-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.description-section {
+  text-align: center;
+}
+
+.stratification-description {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Barra de Estratificação Visual */
+.stratification-visual {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.stratification-bar {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  height: 120px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.train-section,
+.validation-section,
+.test-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.train-section:hover,
+.validation-section:hover,
+.test-section:hover {
+  transform: scale(1.02);
+}
+
+.train-section {
+  flex: 6; /* 60% */
+  background: linear-gradient(135deg, #007aff 0%, #0051d5 100%);
+}
+
+.validation-section {
+  flex: 2; /* 20% */
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+}
+
+.test-section {
+  flex: 2; /* 20% */
+  background: linear-gradient(135deg, #f7931e 0%, #ffcc02 100%);
+}
+
+.section-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.section-percentage {
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Detalhes da Estratificação */
+.stratification-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.detail-icon {
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.train-icon {
+  background: linear-gradient(135deg, #007aff 0%, #0051d5 100%);
+}
+
+.validation-icon {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+}
+
+.test-icon {
+  background: linear-gradient(135deg, #f7931e 0%, #ffcc02 100%);
+}
+
+.detail-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.detail-content p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .stratification-container {
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .stratification-bar {
+    height: 100px;
+    max-width: 100%;
+  }
+
+  .section-label {
+    font-size: 0.9rem;
+  }
+
+  .section-percentage {
+    font-size: 1.5rem;
+  }
+
+  .stratification-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .detail-item {
+    padding: 1rem;
+  }
+
+  .detail-icon {
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stratification-bar {
+    height: 80px;
+    flex-direction: column;
+  }
+
+  .train-section,
+  .validation-section,
+  .test-section {
+    flex: 1;
+    min-height: 60px;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+  }
+
+  .section-percentage {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,287 @@
+/* Slide 49 - Conclusões e Contribuições */
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Banner de Objetivos Alcançados */
+.objectives-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.achievement-banner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+.banner-icon {
+  font-size: 2.5em;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.banner-text h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 0.95em;
+  opacity: 0.95;
+  line-height: 1.3;
+}
+
+/* Grid de Conclusões */
+.conclusions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin: 10px 0;
+}
+
+.conclusion-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid;
+}
+
+.conclusion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.conclusion-card.primary {
+  border-top-color: #007acc;
+}
+
+.conclusion-card.secondary {
+  border-top-color: #28a745;
+}
+
+.conclusion-card.tertiary {
+  border-top-color: #ffc107;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  font-size: 1.8em;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 122, 204, 0.1);
+}
+
+.conclusion-card.secondary .card-icon {
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.conclusion-card.tertiary .card-icon {
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.card-header h4 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.card-content p {
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.highlight-box {
+  background: #f8f9fa;
+  border-left: 4px solid #007acc;
+  padding: 12px 15px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 10px;
+}
+
+.conclusion-card.secondary .highlight-box {
+  border-left-color: #28a745;
+}
+
+.conclusion-card.tertiary .highlight-box {
+  border-left-color: #ffc107;
+}
+
+.highlight-label {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #007acc;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.conclusion-card.secondary .highlight-label {
+  color: #28a745;
+}
+
+.conclusion-card.tertiary .highlight-label {
+  color: #e67e22;
+}
+
+.highlight-box p {
+  margin: 0;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #333;
+  font-style: italic;
+}
+
+/* Aviso de Limitação */
+.limitation-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+  margin-top: 10px;
+}
+
+.notice-icon {
+  font-size: 1.8em;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notice-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.notice-content p {
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .conclusions-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .achievement-banner {
+    padding: 18px 25px;
+  }
+
+  .banner-icon {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    gap: 20px;
+    margin: 15px 0;
+  }
+
+  .achievement-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .banner-text h4 {
+    font-size: 1.2em;
+  }
+
+  .banner-text p {
+    font-size: 0.9em;
+  }
+
+  .conclusion-card {
+    padding: 18px;
+  }
+
+  .card-header {
+    gap: 10px;
+  }
+
+  .card-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6em;
+  }
+
+  .limitation-notice {
+    padding: 18px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-banner {
+    padding: 15px;
+  }
+
+  .banner-icon {
+    font-size: 2em;
+  }
+
+  .conclusion-card {
+    padding: 15px;
+  }
+
+  .card-header h4 {
+    font-size: 1em;
+  }
+
+  .card-content p {
+    font-size: 0.85em;
+  }
+
+  .limitation-notice {
+    padding: 15px;
+  }
+
+  .notice-content h4 {
+    font-size: 1em;
+  }
+
+  .notice-content p {
+    font-size: 0.85em;
+  }
+}

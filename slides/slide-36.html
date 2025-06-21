@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 36 - Resultados de Treinamento</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-36.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide-content">
+        <h2 class="slide-title">Resultados de Treinamento</h2>
+        <h3 class="slide-subtitle">Análise de Performance - Parte I</h3>
+
+        <div class="main-content">
+          <div class="image-section">
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img
+                  src="../assets/RESULT-TREINA-01.png"
+                  alt="Resultados de treinamento dos modelos - Parte 1"
+                  class="main-image"
+                  id="zoomableImage"
+                />
+                <div class="zoom-lens" id="zoomLens"></div>
+                <div class="zoom-result" id="zoomResult"></div>
+              </div>
+              <p class="image-source">Fonte: elaborado pelo autor</p>
+              <p class="zoom-instruction">
+                💡 Clique na imagem para ativar o zoom, clique novamente para
+                desativar
+              </p>
+            </div>
+          </div>
+
+          <div class="description-section">
+            <div class="description-content">
+              <div class="description-item">
+                <span class="description-bullet">•</span>
+                <p>
+                  <strong>Métricas iniciais:</strong> comparação de performance
+                  entre diferentes algoritmos de machine learning
+                </p>
+              </div>
+              <div class="description-item">
+                <span class="description-bullet">•</span>
+                <p>
+                  <strong>Baseline:</strong> estabelecimento dos resultados de
+                  referência para análise comparativa
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="slide-35.html" class="nav-button">← Anterior</a>
+        <a href="../index.html" class="nav-button">🏠 Menu</a>
+        <a href="slide-37.html" class="nav-button">Próximo →</a>
+      </div>
+    </div>
+
+    <script>
+      let zoomActive = false;
+      let zoomInitialized = false;
+
+      function imageZoom(imgID, resultID) {
+        if (zoomInitialized) return;
+
+        var img, lens, result;
+        img = document.getElementById(imgID);
+        result = document.getElementById(resultID);
+        lens = document.getElementById("zoomLens");
+
+        if (!img || !result || !lens) return;
+
+        zoomInitialized = true;
+
+        // Função para atualizar os cálculos de zoom
+        function updateZoomCalculations() {
+          const zoomFactor = 2.05; // Ajustado para corresponder exatamente à área da lupa
+          result.style.backgroundImage = "url('" + img.src + "')";
+
+          // Calcula o tamanho do background baseado no zoom
+          const imgRect = img.getBoundingClientRect();
+          result.style.backgroundSize =
+            imgRect.width * zoomFactor +
+            "px " +
+            imgRect.height * zoomFactor +
+            "px";
+        }
+
+        // Clique para ativar/desativar zoom
+        img.addEventListener("click", function (e) {
+          e.preventDefault();
+          zoomActive = !zoomActive;
+          if (zoomActive) {
+            updateZoomCalculations();
+            img.classList.add("zoom-active");
+            img.style.cursor = "crosshair";
+          } else {
+            result.style.display = "none";
+            lens.style.display = "none";
+            img.classList.remove("zoom-active");
+            img.style.cursor = "pointer";
+          }
+        });
+
+        // Movimento do mouse para zoom (só se ativo)
+        img.addEventListener("mousemove", function (e) {
+          if (!zoomActive) return;
+
+          e.preventDefault();
+          var pos = getCursorPos(e);
+
+          // Calcula a posição da lente
+          var x = pos.x - lens.offsetWidth / 2;
+          var y = pos.y - lens.offsetHeight / 2;
+
+          // Previne que a lente saia da imagem
+          var imgRect = img.getBoundingClientRect();
+          if (x > imgRect.width - lens.offsetWidth)
+            x = imgRect.width - lens.offsetWidth;
+          if (x < 0) x = 0;
+          if (y > imgRect.height - lens.offsetHeight)
+            y = imgRect.height - lens.offsetHeight;
+          if (y < 0) y = 0;
+
+          // Define a posição da lente
+          lens.style.left = x + "px";
+          lens.style.top = y + "px";
+
+          // Calcula o fator de zoom corretamente
+          const zoomFactor = 2.05; // Mesmo fator usado na função updateZoomCalculations
+
+          // Calcula a posição relativa do mouse na imagem (0 a 1)
+          const relativeX = pos.x / imgRect.width;
+          const relativeY = pos.y / imgRect.height;
+
+          // Calcula onde a imagem ampliada deve ser posicionada para centralizar o ponto do mouse
+          const bgWidth = imgRect.width * zoomFactor;
+          const bgHeight = imgRect.height * zoomFactor;
+
+          // Posição que centraliza o ponto do mouse na janela de zoom
+          const bgX = relativeX * bgWidth - result.offsetWidth / 2;
+          const bgY = relativeY * bgHeight - result.offsetHeight / 2;
+
+          // Aplica o posicionamento do background
+          result.style.backgroundPosition = "-" + bgX + "px -" + bgY + "px";
+
+          // Mostra o resultado do zoom
+          result.style.display = "block";
+          lens.style.display = "block";
+        });
+
+        // Esconde zoom quando o mouse sai
+        img.addEventListener("mouseleave", function () {
+          if (!zoomActive) {
+            result.style.display = "none";
+            lens.style.display = "none";
+          }
+        });
+
+        // Reajusta quando a janela é redimensionada
+        window.addEventListener("resize", function () {
+          if (zoomActive) {
+            setTimeout(updateZoomCalculations, 100);
+          }
+        });
+
+        function getCursorPos(e) {
+          var rect = img.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          return { x: x, y: y };
+        }
+
+        // Define cursor inicial
+        img.style.cursor = "pointer";
+
+        // Clique fora da imagem desativa o zoom
+        document.addEventListener("click", function (e) {
+          if (
+            zoomActive &&
+            !img.contains(e.target) &&
+            !result.contains(e.target)
+          ) {
+            zoomActive = false;
+            result.style.display = "none";
+            lens.style.display = "none";
+            img.classList.remove("zoom-active");
+            img.style.cursor = "pointer";
+          }
+        });
+      }
+
+      // Inicializa zoom quando a página carrega
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          imageZoom("zoomableImage", "zoomResult");
+        }, 500);
+      });
+
+      // Fallback para window.onload
+      window.addEventListener("load", function () {
+        if (!zoomInitialized) {
+          imageZoom("zoomableImage", "zoomResult");
+        }
+      });
+    </script>
+  </body>
+</html>
