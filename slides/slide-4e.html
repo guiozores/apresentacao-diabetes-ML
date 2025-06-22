@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 4e - Classificador de Ipês em Tempo Real</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-4e.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide-content">
+        <h2 class="slide-title">Classificador de Ipês</h2>
+
+        <div class="classifier-interface">
+          <!-- Painel do Classificador -->
+          <div class="classifier-panel">
+            <div class="panel-header">
+              <h4>🤖 Classificador ML</h4>
+              <div class="status-indicator active">
+                <span class="status-dot"></span>
+                <span>Online</span>
+              </div>
+            </div>
+
+            <div class="current-sample">
+              <h5>🌸 Amostra Atual:</h5>
+              <div class="sample-container">
+                <div class="sample-image">
+                  <div class="loading-spinner"></div>
+                  <img
+                    id="currentImage"
+                    src="../assets/IPE-ROXO.webp"
+                    alt="Ipê sendo classificado"
+                  />
+                </div>
+                <div class="sample-info">
+                  <div class="sample-id">
+                    Amostra #<span id="sampleId">1</span>
+                  </div>
+                  <div class="ground-truth">
+                    Classe Real: <span id="groundTruth">Ipê Roxo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="probability-section">
+              <h5>📊 Probabilidades:</h5>
+              <div class="probability-bars">
+                <div class="prob-bar roxo">
+                  <span class="prob-label">Ipê Roxo</span>
+                  <div class="prob-container">
+                    <div class="prob-fill" id="probRoxo"></div>
+                    <span class="prob-value" id="probRoxoValue">0%</span>
+                  </div>
+                </div>
+                <div class="prob-bar amarelo">
+                  <span class="prob-label">Ipê Amarelo</span>
+                  <div class="prob-container">
+                    <div class="prob-fill" id="probAmarelo"></div>
+                    <span class="prob-value" id="probAmareloValue">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="prediction-result">
+              <div class="prediction-box">
+                <h5>🎯 Predição:</h5>
+                <div class="prediction-value" id="prediction">
+                  Processando...
+                </div>
+              </div>
+              <div class="result-status" id="resultStatus">
+                <span class="status-icon">⏳</span>
+                <span class="status-text">Aguardando...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Matriz de Confusão Dinâmica -->
+          <div class="confusion-matrix-panel">
+            <div class="matrix-header">
+              <h4>📊 Matriz de Confusão</h4>
+              <div class="matrix-progress">
+                <span>Processadas: <span id="processedCount">0</span>/40</span>
+              </div>
+            </div>
+
+            <div class="matrix-container">
+              <div class="matrix-labels">
+                <div class="predicted-label">Predito</div>
+                <div class="actual-label">Real</div>
+              </div>
+
+              <div class="confusion-matrix">
+                <div class="matrix-headers">
+                  <div class="header-empty"></div>
+                  <div class="header-item roxo">Roxo</div>
+                  <div class="header-item amarelo">Amarelo</div>
+                </div>
+
+                <div class="matrix-row">
+                  <div class="row-header roxo">Roxo</div>
+                  <div class="matrix-cell vp" id="cellVP">
+                    <div class="cell-value">0</div>
+                    <div class="cell-label">VP</div>
+                    <div class="cell-animation"></div>
+                  </div>
+                  <div class="matrix-cell fn" id="cellFN">
+                    <div class="cell-value">0</div>
+                    <div class="cell-label">FN</div>
+                    <div class="cell-animation"></div>
+                  </div>
+                </div>
+
+                <div class="matrix-row">
+                  <div class="row-header amarelo">Amarelo</div>
+                  <div class="matrix-cell fp" id="cellFP">
+                    <div class="cell-value">0</div>
+                    <div class="cell-label">FP</div>
+                    <div class="cell-animation"></div>
+                  </div>
+                  <div class="matrix-cell vn" id="cellVN">
+                    <div class="cell-value">0</div>
+                    <div class="cell-label">VN</div>
+                    <div class="cell-animation"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-legend">
+              <div class="legend-item vp">VP: Verdadeiro Positivo</div>
+              <div class="legend-item fn">FN: Falso Negativo</div>
+              <div class="legend-item fp">FP: Falso Positivo</div>
+              <div class="legend-item vn">VN: Verdadeiro Negativo</div>
+            </div>
+          </div>
+
+          <!-- Painel de Controles e Métricas -->
+          <div class="controls-panel">
+            <div class="controls-section">
+              <h4>🎛️ Controles</h4>
+
+              <div class="threshold-control">
+                <label for="threshold">Threshold:</label>
+                <div class="slider-container">
+                  <input
+                    type="range"
+                    id="threshold"
+                    min="0.1"
+                    max="0.9"
+                    step="0.05"
+                    value="0.5"
+                  />
+                  <span class="slider-value" id="thresholdValue">0.50</span>
+                </div>
+              </div>
+
+              <div class="speed-control">
+                <label for="speed">Velocidade:</label>
+                <select id="speed">
+                  <option value="0.5">0.5x</option>
+                  <option value="1" selected>1x</option>
+                  <option value="2">2x</option>
+                  <option value="5">5x</option>
+                </select>
+              </div>
+
+              <div class="control-buttons">
+                <button id="playBtn" class="control-btn play">▶️ Play</button>
+                <button id="pauseBtn" class="control-btn pause" disabled>
+                  ⏸️ Pause
+                </button>
+                <button id="nextBtn" class="control-btn next">⏭️ Next</button>
+                <button id="resetBtn" class="control-btn reset">
+                  🔄 Reset
+                </button>
+              </div>
+            </div>
+
+            <div class="metrics-section">
+              <h4>📈 Métricas Live</h4>
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <span class="metric-label">Acurácia:</span>
+                  <span class="metric-value" id="accuracy">0.0%</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Precisão:</span>
+                  <span class="metric-value" id="precision">0.0%</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Sensibilidade:</span>
+                  <span class="metric-value" id="recall">0.0%</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">F1-Score:</span>
+                  <span class="metric-value" id="f1score">0.0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="insights-section">
+              <h4>💡 Insights</h4>
+              <div class="insight-text" id="insightText">
+                Ajuste o threshold e observe como as métricas mudam em tempo
+                real!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <a href="slide-4d.html" class="nav-button">← Anterior</a>
+          <a href="../index.html" class="nav-button">Menu</a>
+          <a href="slide-4f.html" class="nav-button">Próximo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Balão explicativo para erros -->
+    <div class="error-overlay" id="errorOverlay"></div>
+    <div class="error-explanation" id="errorExplanation">
+      <div class="error-title">
+        <span id="errorIcon">❌</span>
+        <span id="errorTitleText">Classificação Incorreta!</span>
+      </div>
+      <div class="error-content" id="errorContent">
+        O modelo cometeu um erro de classificação.
+      </div>
+      <div class="probability-comparison" id="probabilityComparison">
+        <div class="prob-item predicted">
+          <div><strong>Predito:</strong></div>
+          <div id="predictedType">Ipê Roxo</div>
+          <div id="predictedProb">65.2%</div>
+        </div>
+        <div class="prob-item actual">
+          <div><strong>Real:</strong></div>
+          <div id="actualType">Ipê Amarelo</div>
+          <div>Verdade</div>
+        </div>
+      </div>
+      <div class="error-details" id="errorDetails">Detalhes do erro...</div>
+      <button class="error-continue" id="errorContinue">▶️ Continuar</button>
+    </div>
+
+    <script src="slide-4e.js"></script>
+  </body>
+</html>

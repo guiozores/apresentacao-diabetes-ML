@@ -22,12 +22,6 @@
   position: relative;
 }
 
-.image-wrapper {
-  position: relative;
-  display: inline-block;
-  cursor: crosshair;
-}
-
 .main-image {
   max-width: 100%;
   width: auto;
@@ -35,76 +29,16 @@
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.main-image:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.main-image.zoom-active {
-  cursor: crosshair;
-  border: 2px solid #007acc;
-}
-
-/* Zoom Lens */
-.zoom-lens {
-  position: absolute;
-  border: 4px solid #007acc;
-  width: 244px;
-  height: 289px;
-  display: none;
-  background-color: rgba(0, 122, 204, 0.2);
-  pointer-events: none;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 122, 204, 0.8),
-    inset 0 0 10px rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(1px);
-}
-
-/* Zoom Result */
-.zoom-result {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 500px;
-  height: 600px;
-  border: 4px solid #007acc;
-  border-radius: 16px;
-  display: none;
-  background-repeat: no-repeat;
-  z-index: 1000;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.8);
-  background-color: white;
-  pointer-events: none;
-  animation: zoomFadeIn 0.2s ease-out;
-}
-
-@keyframes zoomFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+/* Zoom styles removidos - agora usa sistema universal */
 
 .image-source {
   margin-top: 8px;
   font-size: 0.8em;
   color: #666;
   font-style: italic;
-}
-
-.zoom-instruction {
-  margin-top: 4px;
-  font-size: 0.75em;
-  color: #007acc;
-  font-weight: 500;
 }
 
 .description-section {

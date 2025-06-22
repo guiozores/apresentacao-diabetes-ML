@@ -1,0 +1,43 @@
+/* Slide 4b - Ipê Amarelo - Estilos */
+
+.slide-title {
+  color: #f59e0b;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.content-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  width: 600px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .slide-title {
+    font-size: 2rem;
+  }
+
+  .main-image {
+    width: 400px;
+    height: 300px;
+  }
+}

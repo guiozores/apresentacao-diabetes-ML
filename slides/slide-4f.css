@@ -1,0 +1,287 @@
+/* Slide 4c - Insights Importantes */
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 30px 50px;
+}
+
+.slide-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: var(--gradient-title);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.slide-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content-layout {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.insights-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.insight-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.main-insight {
+  border-left: 4px solid #ffd700;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1),
+    rgba(255, 215, 0, 0.05)
+  );
+}
+
+.insight-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.insight-card p {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.explanation-box {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 15px;
+  border-left: 3px solid var(--primary-blue);
+}
+
+.explanation-box p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--primary-blue);
+}
+
+.class-definitions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.class-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.class-item.positive {
+  background: rgba(52, 199, 89, 0.1);
+  border: 1px solid rgba(52, 199, 89, 0.3);
+}
+
+.class-item.negative {
+  background: rgba(255, 149, 0, 0.1);
+  border: 1px solid rgba(255, 149, 0, 0.3);
+}
+
+.class-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.class-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.error-types-section h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.error-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.error-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 15px;
+  border: 2px solid transparent;
+}
+
+.error-card.tipo1 {
+  border-color: #ff9500;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 149, 0, 0.1),
+    rgba(255, 149, 0, 0.05)
+  );
+}
+
+.error-card.tipo2 {
+  border-color: #ff3b30;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 59, 48, 0.1),
+    rgba(255, 59, 48, 0.05)
+  );
+}
+
+.error-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.error-header h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.error-content p {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.error-example {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+.application-note {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 122, 255, 0.1),
+    rgba(255, 149, 0, 0.1)
+  );
+  border-radius: 16px;
+  padding: 20px;
+  border-left: 4px solid var(--primary-blue);
+}
+
+.application-note h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.application-note p {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.nav-button {
+  padding: 12px 24px;
+  background: rgba(0, 122, 255, 0.4);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.nav-button:hover {
+  background: rgba(0, 122, 255, 0.6);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 122, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 30px 20px;
+  }
+
+  .slide-title {
+    font-size: 2.5rem;
+  }
+
+  .slide-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .class-definitions,
+  .error-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .insight-card,
+  .application-note {
+    padding: 15px;
+  }
+
+  .insight-card h4 {
+    font-size: 1.3rem;
+  }
+
+  .insight-card p {
+    font-size: 1rem;
+  }
+}

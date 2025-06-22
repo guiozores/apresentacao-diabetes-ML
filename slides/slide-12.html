@@ -11,395 +11,100 @@
     <div class="presentation-container">
       <div class="slide">
         <div class="slide-content">
-          <h2 class="slide-title">Balanceamento com SMOTE</h2>
-          <h3 class="slide-subtitle">
-            Synthetic Minority Oversampling TEchnique
-          </h3>
+          <h2 class="slide-title">SMOTE: Equilibrando o Dataset</h2>
+          <p class="slide-subtitle">
+            Synthetic Minority Oversampling Technique
+          </p>
 
-          <div class="smote-container">
-            <div class="before-after">
-              <div class="before-smote">
-                <h4>Antes do SMOTE</h4>
-                <div class="class-distribution">
-                  <div class="class-bar majority">
-                    <div class="bar-fill" style="width: 65%"></div>
-                    <span>Não Diabético: 65%</span>
-                  </div>
-                  <div class="class-bar minority">
-                    <div class="bar-fill" style="width: 35%"></div>
-                    <span>Diabético: 35%</span>
-                  </div>
-                </div>
-
-                <div class="scatter-before">
-                  <svg width="180" height="140" viewBox="0 0 180 140">
-                    <!-- Majority class points -->
-                    <circle
-                      cx="40"
-                      cy="40"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="60"
-                      cy="45"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="70"
-                      cy="55"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="80"
-                      cy="35"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="90"
-                      cy="65"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="100"
-                      cy="50"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="110"
-                      cy="40"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="120"
-                      cy="60"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="130"
-                      cy="45"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="140"
-                      cy="55"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-
-                    <!-- Minority class points -->
-                    <circle
-                      cx="55"
-                      cy="100"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="75"
-                      cy="105"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="95"
-                      cy="95"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="115"
-                      cy="110"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="125"
-                      cy="100"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-
-                    <!-- Legend -->
-                    <text x="10" y="20" class="legend-text" fill="#3498db">
-                      ● Não Diabético
-                    </text>
-                    <text x="10" y="130" class="legend-text" fill="#e74c3c">
-                      ● Diabético
-                    </text>
-                  </svg>
+          <div class="smote-comparison">
+            <!-- Dataset Original -->
+            <div class="dataset-panel original">
+              <div class="panel-header">
+                <h3>🔴 Dataset Original</h3>
+                <div class="stats">
+                  <span class="stat diabetes">Diabético: 20 (20%)</span>
+                  <span class="stat normal">Normal: 80 (80%)</span>
                 </div>
               </div>
 
-              <div class="arrow-transform">→</div>
-
-              <div class="after-smote">
-                <h4>Após SMOTE</h4>
-                <div class="class-distribution">
-                  <div class="class-bar balanced-0">
-                    <div class="bar-fill" style="width: 50%"></div>
-                    <span>Não Diabético: 50%</span>
+              <div class="visualization">
+                <div class="scatter-plot" id="originalPlot">
+                  <div class="plot-title">Distribuição Desbalanceada</div>
+                  <div class="plot-area">
+                    <!-- Pontos serão gerados via JavaScript -->
                   </div>
-                  <div class="class-bar balanced-1">
-                    <div class="bar-fill" style="width: 50%"></div>
-                    <span>Diabético: 50%</span>
+                  <div class="legend">
+                    <div class="legend-item">
+                      <span class="legend-dot normal"></span>
+                      <span>Não Diabético</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-dot diabetes"></span>
+                      <span>Diabético</span>
+                    </div>
                   </div>
-                </div>
-
-                <div class="scatter-after">
-                  <svg width="180" height="140" viewBox="0 0 180 140">
-                    <!-- Original majority class points -->
-                    <circle
-                      cx="40"
-                      cy="40"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="60"
-                      cy="45"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="70"
-                      cy="55"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="80"
-                      cy="35"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="90"
-                      cy="65"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="100"
-                      cy="50"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="110"
-                      cy="40"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="120"
-                      cy="60"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="130"
-                      cy="45"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-                    <circle
-                      cx="140"
-                      cy="55"
-                      r="4"
-                      fill="#3498db"
-                      class="majority-point"
-                    />
-
-                    <!-- Original minority class points -->
-                    <circle
-                      cx="55"
-                      cy="100"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="75"
-                      cy="105"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="95"
-                      cy="95"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="115"
-                      cy="110"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-                    <circle
-                      cx="125"
-                      cy="100"
-                      r="4"
-                      fill="#e74c3c"
-                      class="minority-point"
-                    />
-
-                    <!-- Synthetic minority points (SMOTE generated) -->
-                    <circle
-                      cx="65"
-                      cy="102"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="85"
-                      cy="100"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="105"
-                      cy="102"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="120"
-                      cy="105"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="50"
-                      cy="102"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="90"
-                      cy="108"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="110"
-                      cy="98"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-                    <circle
-                      cx="135"
-                      cy="102"
-                      r="3"
-                      fill="#ff6b35"
-                      class="synthetic-point"
-                      stroke="#e74c3c"
-                      stroke-width="1"
-                    />
-
-                    <!-- Legend -->
-                    <text x="10" y="15" class="legend-text" fill="#3498db">
-                      ● Não Diabético
-                    </text>
-                    <text x="10" y="125" class="legend-text" fill="#e74c3c">
-                      ● Diabético Original
-                    </text>
-                    <text x="10" y="135" class="legend-text" fill="#ff6b35">
-                      ● Diabético Sintético
-                    </text>
-                  </svg>
                 </div>
               </div>
             </div>
 
-            <div class="smote-algorithm">
-              <h4>Como funciona o SMOTE:</h4>
+            <!-- Seta de Transformação -->
+            <div class="transformation-arrow">
+              <div class="arrow-container">
+                <div class="smote-icon">⚡</div>
+                <div class="arrow">→</div>
+                <div class="smote-label">SMOTE</div>
+              </div>
+
               <div class="algorithm-steps">
-                <div class="algo-step">
-                  <span class="step-number">1</span>
-                  Seleciona ponto da classe minoritária
+                <div class="step">
+                  <span class="step-num">1</span>
+                  <span>Seleciona ponto minoritário</span>
                 </div>
-                <div class="algo-step">
-                  <span class="step-number">2</span>
-                  Encontra K vizinhos mais próximos (K=5)
+                <div class="step">
+                  <span class="step-num">2</span>
+                  <span>Encontra 5 vizinhos</span>
                 </div>
-                <div class="algo-step">
-                  <span class="step-number">3</span>
-                  Cria ponto sintético entre eles usando interpolação
+                <div class="step">
+                  <span class="step-num">3</span>
+                  <span>Interpola novo ponto</span>
                 </div>
-                <div class="algo-step">
-                  <span class="step-number">4</span>
-                  Repete até balancear as classes (50%-50%)
+                <div class="step">
+                  <span class="step-num">4</span>
+                  <span>Equilibra classes</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dataset Balanceado -->
+            <div class="dataset-panel balanced">
+              <div class="panel-header">
+                <h3>✅ Dataset Balanceado</h3>
+                <div class="stats">
+                  <span class="stat diabetes">Diabético: 80 (50%)</span>
+                  <span class="stat normal">Normal: 80 (50%)</span>
+                </div>
+              </div>
+
+              <div class="visualization">
+                <div class="scatter-plot" id="balancedPlot">
+                  <div class="plot-title">Distribuição Balanceada</div>
+                  <div class="plot-area">
+                    <!-- Pontos serão gerados via JavaScript -->
+                  </div>
+                  <div class="legend">
+                    <div class="legend-item">
+                      <span class="legend-dot normal"></span>
+                      <span>Não Diabético</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-dot diabetes"></span>
+                      <span>Diabético Original</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-dot synthetic"></span>
+                      <span>Diabético Sintético</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -411,11 +116,13 @@
     <!-- Navegação -->
     <div class="navigation">
       <a href="slide-11.html" class="nav-button">← Anterior</a>
-      <a href="../index.html" class="nav-button">🏠 Menu</a>
+      <a href="../index.html" class="nav-button">Menu</a>
       <a href="slide-13.html" class="nav-button">Próximo →</a>
     </div>
 
     <div class="slide-counter">Slide 12 / 32</div>
     <a href="../index.html" class="home-button">🏠</a>
+
+    <script src="slide-12.js"></script>
   </body>
 </html>

@@ -1,11 +1,99 @@
 /* Slide 6: Abordagem Metodológica - Estilos Específicos */
 
-/* Este slide usa apenas estilos globais compartilhados:
-   - .methodology-content
-   - .method-description
-   - .method-title, .method-subtitle
-   - .crisp-dm-container
-   - .image-placeholder, .crisp-dm-image
-   
-   Nenhum estilo específico necessário.
-*/
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 40px;
+}
+
+.methodology-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.method-description {
+  text-align: center;
+}
+
+.method-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient-title);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.method-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.crisp-dm-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.crisp-dm-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.crisp-dm-diagram {
+  max-width: 100%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.image-caption {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 30px 20px;
+  }
+
+  .method-title {
+    font-size: 2rem;
+  }
+
+  .method-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .crisp-dm-diagram {
+    max-height: 400px;
+  }
+
+  .crisp-dm-image {
+    padding: 15px;
+  }
+}

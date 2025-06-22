@@ -1,9 +1,15 @@
-/* Slide 4: Machine Learning no Contexto - Estilos Específicos */
+/* Slide 4: Referencial Teórico - Título da Seção */
 
-/* Este slide usa apenas estilos globais compartilhados:
-   - .context-container
-   - .context-image-wrapper
-   - .context-image
-   
-   Nenhum estilo específico necessário.
-*/
+.slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 2rem;
+  }
+}

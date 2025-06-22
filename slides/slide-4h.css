@@ -1,0 +1,187 @@
+/* Slide 4h - Métricas Complementares - Estilos */
+
+.slide-subtitle {
+  font-size: 1.4rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid;
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+}
+
+.metric-card.recall {
+  border-top-color: #8b5cf6;
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+}
+
+.metric-card.specificity {
+  border-top-color: #f59e0b;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+}
+
+.metric-card.f1-score {
+  border-top-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric-icon {
+  font-size: 1.25rem;
+}
+
+.metric-header h4 {
+  color: #1f2937;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formula {
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #1e40af;
+  text-align: center;
+}
+
+.interpretation {
+  background: rgba(249, 250, 251, 0.8);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  color: #374151;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.diabetes-note {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.summary-box {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.summary-icon {
+  font-size: 1.5rem;
+}
+
+.summary-header h4 {
+  color: #1e40af;
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.summary-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.metric-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.metric-name {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 1.1rem;
+  color: #059669;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 968px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .summary-content {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .slide-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .summary-content {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .metric-summary {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

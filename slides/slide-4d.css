@@ -1,0 +1,172 @@
+/* Slide 4a - Referencial Teórico */
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 60px 80px;
+}
+
+.slide-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: var(--gradient-title);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.slide-subtitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-section {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.concept-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid var(--primary-blue);
+}
+
+.concept-card h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.concept-card p {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.image-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 600px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  object-fit: contain;
+  transform: scale(0.85);
+  display: block;
+  margin: 0 auto;
+}
+
+.context-note {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 149, 0, 0.1),
+    rgba(255, 107, 53, 0.1)
+  );
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #ff9500;
+}
+
+.context-note p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.nav-button {
+  padding: 12px 24px;
+  background: rgba(0, 122, 255, 0.4);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.nav-button:hover {
+  background: rgba(0, 122, 255, 0.6);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 122, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 40px 30px;
+  }
+
+  .slide-title {
+    font-size: 2.5rem;
+  }
+
+  .slide-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .concept-card {
+    padding: 20px;
+  }
+
+  .concept-card h4 {
+    font-size: 1.5rem;
+  }
+
+  .concept-card p {
+    font-size: 1.1rem;
+  }
+
+  .main-image {
+    max-width: 95%;
+  }
+}

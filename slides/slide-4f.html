@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 4f - Insights Importantes</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="slide-4f.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <div class="slide-content">
+        <h2 class="slide-title">Referencial Teórico</h2>
+        <h3 class="slide-subtitle">Insights Importantes</h3>
+
+        <div class="content-layout">
+          <div class="insights-container">
+            <div class="insight-card main-insight">
+              <h4>Verdadeiro Negativo - Esclarecimento</h4>
+              <p>
+                O termo <strong>"Verdadeiro Negativo"</strong>, embora possa
+                confundir e sugerir um erro,
+                <em>na verdade indica um acerto</em>: o modelo previu
+                corretamente que uma instância pertence à "classe negativa".
+              </p>
+
+              <div class="explanation-box">
+                <p><strong>Em classificação, é comum definir:</strong></p>
+                <div class="class-definitions">
+                  <div class="class-item positive">
+                    <span class="class-label">Classe Positiva</span>
+                    <span class="class-desc"
+                      >O foco da detecção (ex: "Ipê Roxo" ou "Diabético")</span
+                    >
+                  </div>
+                  <div class="class-item negative">
+                    <span class="class-label">Classe Negativa</span>
+                    <span class="class-desc"
+                      >Seu oposto (ex: "Ipê Amarelo" ou "Não Diabético")</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="error-types-section">
+              <h4>Tipos de Erro</h4>
+              <div class="error-grid">
+                <div class="error-card tipo1">
+                  <div class="error-header">
+                    <h5>Falso Positivo</h5>
+                  </div>
+                  <div class="error-content">
+                    <p><strong>Erro Tipo I</strong></p>
+                    <p>O modelo deu um <em>"alarme falso"</em> para Ipê Roxo</p>
+                    <div class="error-example">
+                      63 Ipês Amarelos classificados como Roxos
+                    </div>
+                  </div>
+                </div>
+
+                <div class="error-card tipo2">
+                  <div class="error-header">
+                    <h5>Falso Negativo</h5>
+                  </div>
+                  <div class="error-content">
+                    <p><strong>Erro Tipo II</strong></p>
+                    <p>O modelo <em>"deixou passar"</em> esses Ipês Roxos</p>
+                    <div class="error-example">
+                      37 Ipês Roxos não foram identificados
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="application-note">
+              <h4>Aplicação em Diabetes</h4>
+              <p>
+                Estes conceitos são fundamentais para entender como nossos
+                modelos de predição de diabetes funcionam, onde um
+                <strong>Falso Negativo</strong> (não detectar diabetes) é
+                considerado mais grave que um
+                <strong>Falso Positivo</strong> (alertar desnecessariamente).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <a href="slide-4e.html" class="nav-button">← Anterior</a>
+          <a href="../index.html" class="nav-button">Menu</a>
+          <a href="slide-4g.html" class="nav-button">Próximo →</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
