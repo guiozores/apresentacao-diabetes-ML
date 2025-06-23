@@ -16,7 +16,7 @@
           <!-- Painel do Classificador -->
           <div class="classifier-panel">
             <div class="panel-header">
-              <h4>🤖 Classificador ML</h4>
+              <h4>Classificador ML</h4>
               <div class="status-indicator active">
                 <span class="status-dot"></span>
                 <span>Online</span>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="current-sample">
-              <h5>🌸 Amostra Atual:</h5>
+              <h5>Amostra Atual:</h5>
               <div class="sample-container">
                 <div class="sample-image">
                   <div class="loading-spinner"></div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="probability-section">
-              <h5>📊 Probabilidades:</h5>
+              <h5>Probabilidades:</h5>
               <div class="probability-bars">
                 <div class="prob-bar roxo">
                   <span class="prob-label">Ipê Roxo</span>
@@ -67,7 +67,7 @@
 
             <div class="prediction-result">
               <div class="prediction-box">
-                <h5>🎯 Predição:</h5>
+                <h5>Predição:</h5>
                 <div class="prediction-value" id="prediction">
                   Processando...
                 </div>
@@ -82,7 +82,7 @@
           <!-- Matriz de Confusão Dinâmica -->
           <div class="confusion-matrix-panel">
             <div class="matrix-header">
-              <h4>📊 Matriz de Confusão</h4>
+              <h4>Matriz de Confusão</h4>
               <div class="matrix-progress">
                 <span>Processadas: <span id="processedCount">0</span>/40</span>
               </div>
@@ -97,34 +97,34 @@
               <div class="confusion-matrix">
                 <div class="matrix-headers">
                   <div class="header-empty"></div>
-                  <div class="header-item roxo">Roxo</div>
                   <div class="header-item amarelo">Amarelo</div>
-                </div>
-
-                <div class="matrix-row">
-                  <div class="row-header roxo">Roxo</div>
-                  <div class="matrix-cell vp" id="cellVP">
-                    <div class="cell-value">0</div>
-                    <div class="cell-label">VP</div>
-                    <div class="cell-animation"></div>
-                  </div>
-                  <div class="matrix-cell fn" id="cellFN">
-                    <div class="cell-value">0</div>
-                    <div class="cell-label">FN</div>
-                    <div class="cell-animation"></div>
-                  </div>
+                  <div class="header-item roxo">Roxo</div>
                 </div>
 
                 <div class="matrix-row">
                   <div class="row-header amarelo">Amarelo</div>
+                  <div class="matrix-cell vn" id="cellVN">
+                    <div class="cell-value">0</div>
+                    <div class="cell-label">VN</div>
+                    <div class="cell-animation"></div>
+                  </div>
                   <div class="matrix-cell fp" id="cellFP">
                     <div class="cell-value">0</div>
                     <div class="cell-label">FP</div>
                     <div class="cell-animation"></div>
                   </div>
-                  <div class="matrix-cell vn" id="cellVN">
+                </div>
+
+                <div class="matrix-row">
+                  <div class="row-header roxo">Roxo</div>
+                  <div class="matrix-cell fn" id="cellFN">
                     <div class="cell-value">0</div>
-                    <div class="cell-label">VN</div>
+                    <div class="cell-label">FN</div>
+                    <div class="cell-animation"></div>
+                  </div>
+                  <div class="matrix-cell vp" id="cellVP">
+                    <div class="cell-value">0</div>
+                    <div class="cell-label">VP</div>
                     <div class="cell-animation"></div>
                   </div>
                 </div>
@@ -132,17 +132,25 @@
             </div>
 
             <div class="matrix-legend">
-              <div class="legend-item vp">VP: Verdadeiro Positivo</div>
-              <div class="legend-item fn">FN: Falso Negativo</div>
-              <div class="legend-item fp">FP: Falso Positivo</div>
-              <div class="legend-item vn">VN: Verdadeiro Negativo</div>
+              <div class="legend-item vn">
+                VN: Verdadeiro Negativo (amarelo corretamente identificado)
+              </div>
+              <div class="legend-item fp">
+                FP: Falso Positivo (amarelo incorretamente como roxo)
+              </div>
+              <div class="legend-item fn">
+                FN: Falso Negativo (roxo incorretamente como amarelo)
+              </div>
+              <div class="legend-item vp">
+                VP: Verdadeiro Positivo (roxo corretamente identificado)
+              </div>
             </div>
           </div>
 
           <!-- Painel de Controles e Métricas -->
           <div class="controls-panel">
             <div class="controls-section">
-              <h4>🎛️ Controles</h4>
+              <h4>Controles</h4>
 
               <div class="threshold-control">
                 <label for="threshold">Threshold:</label>
@@ -170,19 +178,17 @@
               </div>
 
               <div class="control-buttons">
-                <button id="playBtn" class="control-btn play">▶️ Play</button>
+                <button id="playBtn" class="control-btn play">Play</button>
                 <button id="pauseBtn" class="control-btn pause" disabled>
-                  ⏸️ Pause
+                  Pause
                 </button>
-                <button id="nextBtn" class="control-btn next">⏭️ Next</button>
-                <button id="resetBtn" class="control-btn reset">
-                  🔄 Reset
-                </button>
+                <button id="nextBtn" class="control-btn next">Next</button>
+                <button id="resetBtn" class="control-btn reset">Reset</button>
               </div>
             </div>
 
             <div class="metrics-section">
-              <h4>📈 Métricas Live</h4>
+              <h4>Métricas Live</h4>
               <div class="metrics-grid">
                 <div class="metric-item">
                   <span class="metric-label">Acurácia:</span>
@@ -197,14 +203,14 @@
                   <span class="metric-value" id="recall">0.0%</span>
                 </div>
                 <div class="metric-item">
-                  <span class="metric-label">F1-Score:</span>
-                  <span class="metric-value" id="f1score">0.0%</span>
+                  <span class="metric-label">Especificidade:</span>
+                  <span class="metric-value" id="specificity">0.0%</span>
                 </div>
               </div>
             </div>
 
             <div class="insights-section">
-              <h4>💡 Insights</h4>
+              <h4>Insights</h4>
               <div class="insight-text" id="insightText">
                 Ajuste o threshold e observe como as métricas mudam em tempo
                 real!
@@ -244,7 +250,7 @@
         </div>
       </div>
       <div class="error-details" id="errorDetails">Detalhes do erro...</div>
-      <button class="error-continue" id="errorContinue">▶️ Continuar</button>
+      <button class="error-continue" id="errorContinue">Continuar</button>
     </div>
 
     <script src="slide-4e.js"></script>

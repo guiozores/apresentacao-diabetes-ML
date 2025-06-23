@@ -130,7 +130,7 @@ class IpeClassifier {
       accuracy: document.getElementById("accuracy"),
       precision: document.getElementById("precision"),
       recall: document.getElementById("recall"),
-      f1score: document.getElementById("f1score"),
+      specificity: document.getElementById("specificity"),
 
       // Insights
       insightText: document.getElementById("insightText"),
@@ -299,7 +299,7 @@ class IpeClassifier {
     this.elements.prediction.className = `prediction-value ${predicted}`;
 
     // Mostrar status do resultado
-    const statusIcon = isCorrect ? "✅" : "❌";
+    const statusIcon = isCorrect ? "✓" : "✗";
     const statusText = isCorrect ? "CORRETO" : "INCORRETO";
     const statusClass = isCorrect ? "correct" : "incorrect";
 
@@ -322,20 +322,21 @@ class IpeClassifier {
     const predicted = probRoxo >= this.threshold ? "roxo" : "amarelo";
     const actual = sample.tipo;
 
-    // Determinar tipo de resultado
+    // Determinar tipo de resultado seguindo padrão sklearn
+    // Roxo = Positivo (classe de interesse), Amarelo = Negativo
     let cellType;
-    if (actual === "roxo" && predicted === "roxo") {
-      this.confusionMatrix.VP++;
-      cellType = "VP";
-    } else if (actual === "amarelo" && predicted === "amarelo") {
-      this.confusionMatrix.VN++;
+    if (actual === "amarelo" && predicted === "amarelo") {
+      this.confusionMatrix.VN++; // Verdadeiro Negativo
       cellType = "VN";
     } else if (actual === "amarelo" && predicted === "roxo") {
-      this.confusionMatrix.FP++;
+      this.confusionMatrix.FP++; // Falso Positivo
       cellType = "FP";
     } else if (actual === "roxo" && predicted === "amarelo") {
-      this.confusionMatrix.FN++;
+      this.confusionMatrix.FN++; // Falso Negativo
       cellType = "FN";
+    } else if (actual === "roxo" && predicted === "roxo") {
+      this.confusionMatrix.VP++; // Verdadeiro Positivo
+      cellType = "VP";
     }
 
     // Animar célula correspondente
@@ -357,18 +358,15 @@ class IpeClassifier {
       this.elements.accuracy.textContent = "0.0%";
       this.elements.precision.textContent = "0.0%";
       this.elements.recall.textContent = "0.0%";
-      this.elements.f1score.textContent = "0.0%";
+      this.elements.specificity.textContent = "0.0%";
       return;
     }
 
     // Calcular métricas
     const accuracy = ((VP + VN) / total) * 100;
     const precision = VP + FP > 0 ? (VP / (VP + FP)) * 100 : 0;
-    const recall = VP + FN > 0 ? (VP / (VP + FN)) * 100 : 0;
-    const f1 =
-      precision + recall > 0
-        ? (2 * precision * recall) / (precision + recall)
-        : 0;
+    const recall = VP + FN > 0 ? (VP / (VP + FN)) * 100 : 0; // Sensibilidade
+    const specificity = VN + FP > 0 ? (VN / (VN + FP)) * 100 : 0; // Especificidade
 
     // Atualizar interface com animação
     this.animateMetricUpdate(this.elements.accuracy, accuracy.toFixed(1) + "%");
@@ -377,7 +375,10 @@ class IpeClassifier {
       precision.toFixed(1) + "%"
     );
     this.animateMetricUpdate(this.elements.recall, recall.toFixed(1) + "%");
-    this.animateMetricUpdate(this.elements.f1score, f1.toFixed(1) + "%");
+    this.animateMetricUpdate(
+      this.elements.specificity,
+      specificity.toFixed(1) + "%"
+    );
   }
 
   animateMetricUpdate(element, newValue) {
@@ -407,7 +408,7 @@ class IpeClassifier {
     if (this.threshold < 0.4) {
       return "ALTA SENSIBILIDADE: detecta mais Ipês Roxos verdadeiros, mas classifica erroneamente alguns Ipês Amarelos como Roxos";
     } else if (this.threshold >= 0.4 && this.threshold <= 0.6) {
-      return "THRESHOLD EQUILIBRADO: balanço entre acertos e erros - precisão esperada ~75-80%";
+      return "THRESHOLD EQUILIBRADO: balanço entre sensibilidade e especificidade - precisão esperada ~75-80%";
     } else {
       return "ALTA ESPECIFICIDADE: evita classificar Ipês Amarelos como Roxos, mas perde alguns Ipês Roxos verdadeiros";
     }
@@ -428,21 +429,21 @@ class IpeClassifier {
     const accuracy = ((VP + VN) / total) * 100;
 
     if (accuracy > 85) {
-      return `Excelente performance! Precisão: ${accuracy.toFixed(
+      return `Acurácia elevada: ${accuracy.toFixed(
         1
-      )}% - modelo muito confiável`;
+      )}% - modelo demonstra alta confiabilidade`;
     } else if (accuracy > 75) {
-      return `Boa performance! Precisão: ${accuracy.toFixed(
+      return `Acurácia satisfatória: ${accuracy.toFixed(
         1
-      )}% - alguns erros são normais em classificação`;
+      )}% - desempenho dentro do esperado para classificação`;
     } else if (accuracy > 60) {
-      return `Performance moderada: ${accuracy.toFixed(
+      return `Acurácia intermediária: ${accuracy.toFixed(
         1
-      )}% - considere ajustar o threshold`;
+      )}% - otimize o threshold para melhor balanço entre precisão e recall`;
     } else {
-      return `Performance baixa: ${accuracy.toFixed(
+      return `Acurácia insuficiente: ${accuracy.toFixed(
         1
-      )}% - modelo precisa de melhorias`;
+      )}% - necessário retreinamento ou ajuste de parâmetros`;
     }
   }
 
@@ -459,7 +460,7 @@ class IpeClassifier {
     } else if (FP === FN && FP > 0) {
       return `${FP} falsos positivos = ${FN} falsos negativos - erros equilibrados entre as classes`;
     } else {
-      return "Nenhum erro até agora - modelo performando perfeitamente!";
+      return "Classificação perfeita - nenhum erro identificado até o momento";
     }
   }
 
@@ -499,7 +500,7 @@ class IpeClassifier {
     this.elements.prediction.textContent = "Aguardando...";
     this.elements.prediction.className = "prediction-value";
     this.elements.resultStatus.innerHTML =
-      '<span class="status-icon">⏳</span><span class="status-text">Aguardando...</span>';
+      '<span class="status-icon"></span><span class="status-text">Aguardando...</span>';
     this.elements.resultStatus.className = "result-status";
 
     // Resetar matriz
@@ -514,12 +515,12 @@ class IpeClassifier {
 
     // Resetar insights
     this.elements.insightText.textContent =
-      "Ajuste o threshold e observe como as métricas mudam em tempo real!";
+      "Ajuste o threshold para observar o impacto nas métricas de classificação";
   }
 
   showCompletionMessage() {
     this.elements.insightText.textContent =
-      "🎉 Simulação completa! Todas as 40 amostras foram processadas. Clique em Reset para recomeçar.";
+      "Simulação concluída. 40 amostras processadas. Utilize o botão Reset para reiniciar a análise.";
   }
 
   async showErrorExplanation(sample, predicted, probRoxo) {
@@ -533,8 +534,8 @@ class IpeClassifier {
     if (actual === "roxo" && predicted === "amarelo") {
       // Falso Negativo
       errorType = "Falso Negativo";
-      errorIcon = "🟡";
-      errorTitle = "Falso Negativo - Ipê Roxo perdido!";
+      errorIcon = "!";
+      errorTitle = "Falso Negativo - Classificação Incorreta";
 
       if (this.threshold > 0.7) {
         errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. Isso acontece quando o threshold está muito alto (${this.threshold.toFixed(
@@ -546,7 +547,7 @@ class IpeClassifier {
           0
         )}%. Considere reduzir o threshold para capturar mais Ipês Roxos.`;
       } else {
-        errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. O modelo se confundiu com características visuais ambíguas desta amostra.`;
+        errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. Características visuais ambíguas desta amostra dificultaram a classificação correta.`;
         errorDetails = `Com ${normalizedProbRoxo}% de probabilidade para Roxo, ficou abaixo do threshold de ${(
           this.threshold * 100
         ).toFixed(
@@ -556,8 +557,8 @@ class IpeClassifier {
     } else {
       // Falso Positivo
       errorType = "Falso Positivo";
-      errorIcon = "🟣";
-      errorTitle = "Falso Positivo - Confusão de cores!";
+      errorIcon = "!";
+      errorTitle = "Falso Positivo - Classificação Incorreta";
 
       if (this.threshold < 0.3) {
         errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. Isso acontece quando o threshold está muito baixo (${this.threshold.toFixed(
@@ -569,7 +570,7 @@ class IpeClassifier {
           0
         )}%. Considere aumentar o threshold para reduzir falsos positivos.`;
       } else {
-        errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. O modelo se confundiu com características visuais similares desta amostra.`;
+        errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. Características visuais similares desta amostra dificultaram a discriminação entre as classes.`;
         errorDetails = `Com ${normalizedProbRoxo}% de probabilidade para Roxo, ficou acima do threshold de ${(
           this.threshold * 100
         ).toFixed(

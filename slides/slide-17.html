@@ -6,6 +6,9 @@
     <title>Slide 17 - Análise de Dispersão | Além das Métricas</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-17.css" />
+
+    <!-- Sistema Universal de Zoom -->
+    <script src="../zoom-simple.js"></script>
   </head>
   <body>
     <div class="presentation-container">
@@ -16,12 +19,26 @@
 
           <div class="aed-image-content">
             <div class="image-container-large">
-              <img
-                src="../assets/AED-03.png"
-                alt="Análise de correlação/dispersão - glicose vs. outras variáveis"
-                class="aed-image"
-              />
+              <div class="image-wrapper" id="imgWrapper">
+                <img
+                  src="../assets/AED-03.png"
+                  alt="Análise de correlação/dispersão - glicose vs. outras variáveis"
+                  class="aed-image"
+                  id="zoomableImage"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.5"
+                  data-lens-shape="rectangle"
+                  data-lens-width="297"
+                  data-lens-height="300"
+                  data-zoom-box-width="770"
+                  data-zoom-box-height="750"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
+              <p class="zoom-instruction">
+                💡 Clique na imagem para ativar o zoom e explore os detalhes dos
+                gráficos de dispersão
+              </p>
             </div>
 
             <div class="key-points">

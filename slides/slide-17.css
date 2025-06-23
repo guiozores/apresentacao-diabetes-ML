@@ -77,6 +77,15 @@
   font-weight: 600;
 }
 
+/* Instrução de Zoom */
+.zoom-instruction {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #007acc;
+  font-style: italic;
+  font-weight: 500;
+}
+
 /* Responsividade */
 @media (max-width: 1024px) {
   .key-points {
@@ -112,4 +121,9 @@
   .point-item p {
     font-size: 0.8em;
   }
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
 }
