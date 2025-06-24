@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apresentação Monografia - Menu Principal</title>
+    <title>ALÉM DAS MÉTRICAS: ANÁLISE DE COMPORTAMENTO PREDITIVO NA SELEÇÃO DE MODELOS DE MACHINE LEARNING PARA O RISCO DE DIABETES</title>
     <link rel="stylesheet" href="global.css" />
     <style>
       body {
@@ -59,18 +59,48 @@
         color: #333;
       }
 
-      .slide-number {
-        background: #007acc;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 0.9em;
-        font-weight: bold;
-        display: inline-block;
-        margin-bottom: 10px;
-      }
+/* ===== BOTÃO / SLIDE NUMBER (VERSÃO SUAVIZADA) ===== */
+.slide-number {
+  /* tipografia alinhada ao título */
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
 
-      .slide-title {
+  /* pill layout  */
+  padding: 4px 12px;
+  border-radius: 9999px;      /* full pill */
+
+  /* fundo translúcido em tom pastel */
+  background: linear-gradient(90deg,
+              rgba(0, 120, 255, 0.12) 0%,
+              rgba(0, 201, 255, 0.16) 100%);
+
+  /* texto azul consistente com o degradê dos títulos */
+  color: #0078ff;
+
+  /* borda leve para definição */
+  border: 1px solid rgba(0, 120, 255, 0.25);
+
+  /* sombra muito sutil p/ legibilidade em fundos claros */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+  /* espaçamento inferior (caso necessário) */
+  margin-bottom: 10px;
+
+  /* transições suaves para interação */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* realce em hover/focus: assume o degradê cheio, texto branco */
+.slide-number:hover,
+.slide-number:focus-visible {
+  background: linear-gradient(90deg, #0078ff 0%, #00c9ff 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+      .main-card-title {
         font-size: 1.1em;
         font-weight: 600;
         margin-bottom: 8px;
@@ -96,9 +126,9 @@
   </head>
   <body>
     <div class="menu-container">
-      <h1 class="menu-title">Análise Preditiva de Diabetes</h1>
+      <h1 class="main-title">Além das Métricas</h1>
       <p class="menu-subtitle">
-        Apresentação da Monografia - Navegação por Slides
+        Análise de Comportamento Preditivo na Seleção de Modelos de Machine Learning para O RISCO DE DIABETES
       </p>
 
       <div class="section-divider">Introdução e Referencial</div>
@@ -106,84 +136,84 @@
           <div class="slide-card">
             <a href="slides/slide-1.html">
               <span class="slide-number">Slide 1</span>
-              <div class="slide-title">Análise de Comportamento Preditivo na Seleção de Modelos de Machine Learning para o Risco de Diabetes</div>
+              <div class="main-card-title">Início</div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-2.html">
               <span class="slide-number">Slide 2</span>
-              <div class="slide-title">O Problema</div>
+              <div class="main-card-title">O Problema</div>
               <div class="slide-description">Um Desafio de Saúde Pública</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-3.html">
               <span class="slide-number">Slide 3</span>
-              <div class="slide-title">Objetivo e Justificativa</div>
+              <div class="main-card-title">Objetivo e Justificativa</div>
               <div class="slide-description">Justificativa</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4.html">
               <span class="slide-number">Slide 4</span>
-              <div class="slide-title">Referencial Teórico</div>
+              <div class="main-card-title">Referencial Teórico</div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4a.html">
               <span class="slide-number">Slide 4A</span>
-              <div class="slide-title">Referencial Teórico</div>
+              <div class="main-card-title">Referencial Teórico</div>
               <div class="slide-description">Conceitos Fundamentais para Análise de Classificação</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4b.html">
               <span class="slide-number">Slide 4B</span>
-              <div class="slide-title">Ipê Amarelo</div>
+              <div class="main-card-title">Ipê Amarelo</div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4c.html">
               <span class="slide-number">Slide 4C</span>
-              <div class="slide-title">Ipê Roxo</div>
+              <div class="main-card-title">Ipê Roxo</div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4d.html">
               <span class="slide-number">Slide 4D</span>
-              <div class="slide-title">Referencial Teórico</div>
+              <div class="main-card-title">Referencial Teórico</div>
               <div class="slide-description">Matriz de Confusão - Conceitos Fundamentais</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4e.html">
               <span class="slide-number">Slide 4E</span>
-              <div class="slide-title">Classificador de Ipês</div>
+              <div class="main-card-title">Classificador de Ipês</div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4f.html">
               <span class="slide-number">Slide 4F</span>
-              <div class="slide-title">Referencial Teórico</div>
+              <div class="main-card-title">Referencial Teórico</div>
               <div class="slide-description">Insights Importantes</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4g.html">
               <span class="slide-number">Slide 4G</span>
-              <div class="slide-title">Métricas de Avaliação</div>
+              <div class="main-card-title">Métricas de Avaliação</div>
               <div class="slide-description">Acurácia e Precisão</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-4h.html">
               <span class="slide-number">Slide 4H</span>
-              <div class="slide-title">Métricas Complementares</div>
+              <div class="main-card-title">Métricas Complementares</div>
               <div class="slide-description">Sensibilidade, Especificidade e F1-Score</div>
             </a>
           </div>
@@ -193,77 +223,77 @@
           <div class="slide-card">
             <a href="slides/slide-5.html">
               <span class="slide-number">Slide 5</span>
-              <div class="slide-title">"Um modelo é bom apenas pelas suas métricas?"</div>
+              <div class="main-card-title">"Um modelo é bom apenas pelas suas métricas?"</div>
               <div class="slide-description">A Nossa Tese Central: Além das Métricas</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-6.html">
               <span class="slide-number">Slide 6</span>
-              <div class="slide-title">Metodologia</div>
+              <div class="main-card-title">Metodologia</div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-7.html">
               <span class="slide-number">Slide 7</span>
-              <div class="slide-title">Fase 1: Entendimento dos Dados</div>
+              <div class="main-card-title">Fase 1: Entendimento dos Dados</div>
               <div class="slide-description">Dataset</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-8.html">
               <span class="slide-number">Slide 8</span>
-              <div class="slide-title">Fase 2: Pipeline de Preparação dos Dados</div>
+              <div class="main-card-title">Fase 2: Pipeline de Preparação dos Dados</div>
               <div class="slide-description">Pipeline Metodológico de Preparação</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-9.html">
               <span class="slide-number">Slide 9</span>
-              <div class="slide-title">Estudo Metodológico: Tratamento dos Zeros</div>
+              <div class="main-card-title">Estudo Metodológico: Tratamento dos Zeros</div>
               <div class="slide-description">Análise Comparativa de 5 Estratégias</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-10.html">
               <span class="slide-number">Slide 10</span>
-              <div class="slide-title">Divisão Estratificada dos Dados</div>
+              <div class="main-card-title">Divisão Estratificada dos Dados</div>
               <div class="slide-description">Preservando a Proporção das Classes</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-11.html">
               <span class="slide-number">Slide 11</span>
-              <div class="slide-title">Remoção de Outliers</div>
+              <div class="main-card-title">Remoção de Outliers</div>
               <div class="slide-description">Método IQR (Interquartile Range)</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-12.html">
               <span class="slide-number">Slide 12</span>
-              <div class="slide-title">SMOTE: Equilibrando o Dataset</div>
+              <div class="main-card-title">SMOTE: Equilibrando o Dataset</div>
               <div class="slide-description">🔴 Dataset Original</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-13.html">
               <span class="slide-number">Slide 13</span>
-              <div class="slide-title">Normalização Z-Score</div>
+              <div class="main-card-title">Normalização Z-Score</div>
               <div class="slide-description">Padronização para Média 0 e Desvio 1</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-14.html">
               <span class="slide-number">Slide 14</span>
-              <div class="slide-title">Modelagem</div>
+              <div class="main-card-title">Modelagem</div>
               <div class="slide-description">Algoritmos de Machine Learning Selecionados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-15.html">
               <span class="slide-number">Slide 15</span>
-              <div class="slide-title">Fase 4: Avaliação</div>
+              <div class="main-card-title">Fase 4: Avaliação</div>
               <div class="slide-description">Estratégia Dupla de Avaliação</div>
             </a>
           </div>
@@ -273,273 +303,273 @@
           <div class="slide-card">
             <a href="slides/slide-15a.html">
               <span class="slide-number">Slide 15A</span>
-              <div class="slide-title">Análise Exploratória dos Dados e Comportamento Preditivo</div>
+              <div class="main-card-title">Análise Exploratória dos Dados e Comportamento Preditivo</div>
               <div class="slide-description">Análise Exploratória</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-15b.html">
               <span class="slide-number">Slide 15B</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Visão Geral do Dataset</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-16.html">
               <span class="slide-number">Slide 16</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Matriz de Correlação</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-17.html">
               <span class="slide-number">Slide 17</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Análise de Correlação/Dispersão</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-18.html">
               <span class="slide-number">Slide 18</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Distribuição da Glicose por Desfecho</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-19.html">
               <span class="slide-number">Slide 19</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Distribuição de BMI/IMC por Desfecho</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-20.html">
               <span class="slide-number">Slide 20</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Quadrantes de Risco</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-21.html">
               <span class="slide-number">Slide 21</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Taxa de Diabetes por Fatores de Risco</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-22.html">
               <span class="slide-number">Slide 22</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Taxa de Diabetes por Classificação de IMC</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-23.html">
               <span class="slide-number">Slide 23</span>
-              <div class="slide-title">Análise Exploratória de Dados</div>
+              <div class="main-card-title">Análise Exploratória de Dados</div>
               <div class="slide-description">Principais Achados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-24.html">
               <span class="slide-number">Slide 24</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Tratamento de Valores Zero</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-25.html">
               <span class="slide-number">Slide 25</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Perfis Sintéticos para Validação</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-25a.html">
               <span class="slide-number">Slide 25A</span>
-              <div class="slide-title"></div>
+              <div class="main-card-title"></div>
               <div class="slide-description"></div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-26.html">
               <span class="slide-number">Slide 26</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Diferenças na Distribuição por Processamento</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-27.html">
               <span class="slide-number">Slide 27</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Dispersão dos Pontos Inseridos por Processamento</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-28.html">
               <span class="slide-number">Slide 28</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Análise dos Resultados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-29.html">
               <span class="slide-number">Slide 29</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Principais Achados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-30.html">
               <span class="slide-number">Slide 30</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Estratificação dos Dados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-31.html">
               <span class="slide-number">Slide 31</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Remoção de Outliers - Método IQR</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-32.html">
               <span class="slide-number">Slide 32</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Remoção de Outliers - Resultados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-33.html">
               <span class="slide-number">Slide 33</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Balanceamento - Técnica SMOTE</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-34.html">
               <span class="slide-number">Slide 34</span>
-              <div class="slide-title">Pré-processamento de Dados</div>
+              <div class="main-card-title">Pré-processamento de Dados</div>
               <div class="slide-description">Normalização dos Dados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-35.html">
               <span class="slide-number">Slide 35</span>
-              <div class="slide-title">Treinamento dos Modelos</div>
+              <div class="main-card-title">Treinamento dos Modelos</div>
               <div class="slide-description">Hiperparâmetros Utilizados</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-36.html">
               <span class="slide-number">Slide 36</span>
-              <div class="slide-title">Resultados de Treinamento</div>
+              <div class="main-card-title">Resultados de Treinamento</div>
               <div class="slide-description">Análise de Performance&nbsp;- Parte&nbsp;I</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-37.html">
               <span class="slide-number">Slide 37</span>
-              <div class="slide-title">Resultados de Treinamento</div>
+              <div class="main-card-title">Resultados de Treinamento</div>
               <div class="slide-description">Análise de Performance - Parte&nbsp;II</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-38.html">
               <span class="slide-number">Slide 38</span>
-              <div class="slide-title">Resultados de Treinamento</div>
+              <div class="main-card-title">Resultados de Treinamento</div>
               <div class="slide-description">Análise de Performance - Parte&nbsp;III</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-39.html">
               <span class="slide-number">Slide 39</span>
-              <div class="slide-title">Resultados de Treinamento</div>
+              <div class="main-card-title">Resultados de Treinamento</div>
               <div class="slide-description">Análise de Performance - Parte IV</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-40.html">
               <span class="slide-number">Slide 40</span>
-              <div class="slide-title">Resultados de Treinamento</div>
+              <div class="main-card-title">Resultados de Treinamento</div>
               <div class="slide-description">Análise de Performance&nbsp;- Parte V</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-41.html">
               <span class="slide-number">Slide 41</span>
-              <div class="slide-title">Resultados de Treinamento</div>
+              <div class="main-card-title">Resultados de Treinamento</div>
               <div class="slide-description">Análise de Performance&nbsp;- Parte VI</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-42.html">
               <span class="slide-number">Slide 42</span>
-              <div class="slide-title">Otimização de Threshold</div>
+              <div class="main-card-title">Otimização de Threshold</div>
               <div class="slide-description">Análise Completa – AdaBoost</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-43.html">
               <span class="slide-number">Slide 43</span>
-              <div class="slide-title">Otimização de Threshold</div>
+              <div class="main-card-title">Otimização de Threshold</div>
               <div class="slide-description">Análise Completa – Gradient Boosting</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-44.html">
               <span class="slide-number">Slide 44</span>
-              <div class="slide-title">Otimização de Threshold</div>
+              <div class="main-card-title">Otimização de Threshold</div>
               <div class="slide-description">Análise Completa – Random Forest</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-45.html">
               <span class="slide-number">Slide 45</span>
-              <div class="slide-title">Otimização de Threshold</div>
+              <div class="main-card-title">Otimização de Threshold</div>
               <div class="slide-description">Análise Completa – Regressão Logística</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-46.html">
               <span class="slide-number">Slide 46</span>
-              <div class="slide-title">Avaliação Pós-Otimização</div>
+              <div class="main-card-title">Avaliação Pós-Otimização</div>
               <div class="slide-description">Matrizes de Confusão – Threshold 0,4</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-47.html">
               <span class="slide-number">Slide 47</span>
-              <div class="slide-title">Avaliação Pós-Otimização</div>
+              <div class="main-card-title">Avaliação Pós-Otimização</div>
               <div class="slide-description">Impacto da recalibração do limiar (0,5&nbsp;→&nbsp;0,4)</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-48.html">
               <span class="slide-number">Slide 48</span>
-              <div class="slide-title">Validação Qualitativa</div>
+              <div class="main-card-title">Validação Qualitativa</div>
               <div class="slide-description">6 Perfis de Pacientes – Threshold 0,4</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-49.html">
               <span class="slide-number">Slide 49</span>
-              <div class="slide-title">Conclusões</div>
+              <div class="main-card-title">Conclusões</div>
               <div class="slide-description">Síntese dos Achados Principais</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-50.html">
               <span class="slide-number">Slide 50</span>
-              <div class="slide-title">Recomendações e Trabalhos Futuros</div>
+              <div class="main-card-title">Recomendações e Trabalhos Futuros</div>
               <div class="slide-description">Diretrizes para Evolução e Aplicabilidade</div>
             </a>
           </div>
           <div class="slide-card">
             <a href="slides/slide-51.html">
               <span class="slide-number">Slide 51</span>
-              <div class="slide-title">Obrigado!</div>
+              <div class="main-card-title">Obrigado!</div>
               <div class="slide-description"></div>
             </a>
           </div>
