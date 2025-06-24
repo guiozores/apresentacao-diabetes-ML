@@ -63,6 +63,16 @@
   gap: 0.75rem;
 }
 
+.definition {
+  background: rgba(243, 244, 246, 0.6);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
 .formula {
   background: rgba(59, 130, 246, 0.1);
   padding: 0.75rem;
