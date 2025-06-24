@@ -3,51 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 48 - Otimização de Hiperparâmetros</title>
+    <title>Slide 48 – Teste em Perfis Sintéticos</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-48.css" />
   </head>
+
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">
-          Resultados Finais e Conclusões - Parte VII
-        </h3>
+        <h2 class="slide-title">Validação Qualitativa</h2>
+        <h3 class="slide-subtitle">6 Perfis de Pacientes – Threshold 0,4</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
-              <img
-                src="../assets/OTIMIZA-07.png"
-                alt="Otimização de hiperparâmetros - Resultados finais"
-                class="main-image"
-              />
+              <div class="image-wrapper">
+                <img
+                  src="../assets/OTIMIZA-07.png"
+                  alt="Probabilidade predita para os 6 perfis sintéticos"
+                  class="main-image"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.0"
+                  data-lens-shape="rectangle"
+                  data-lens-width="213"
+                  data-lens-height="243"
+                  data-zoom-box-width="460"
+                  data-zoom-box-height="520"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
             </div>
           </div>
 
+          <!-- INSIGHTS PRINCIPAIS -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Configurações otimizadas:</strong> resumo das melhores
-                  configurações encontradas para cada algoritmo
+                  <strong>AdaBoost superestima risco:</strong> atribui
+                  probabilidade &gt; 0,55 a quase todos os perfis—incluindo
+                  “Saudável” (0,29)—comprometendo a utilidade clínica.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Ganhos de performance:</strong> quantificação das
-                  melhorias obtidas através da otimização de hiperparâmetros
+                  <strong>Gradient Boosting falha no extremo:</strong>
+                  classifica o perfil “Diabético Severo” abaixo do limiar
+                  (0,013), demonstrando risco de subdiagnóstico crítico.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Recomendações:</strong> diretrizes para aplicação
-                  prática dos resultados obtidos no processo
+                  <strong>Random Forest apresenta “escada” coerente:</strong>
+                  probabilidades decrescem monotonicamente do perfil severo
+                  (0,607) até o saudável (0,020), refletindo gradiente clínico
+                  esperado.
+                </p>
+              </div>
+
+              <div class="description-item">
+                <span class="description-bullet">•</span>
+                <p>
+                  <strong>Regressão Logística também consistente:</strong>
+                  separação clara dos seis níveis de risco, embora o intervalo
+                  dinâmico seja mais estreito; modelo leve e interpretável—bom
+                  candidato para ajuste fino futuro.
+                </p>
+              </div>
+
+              <div class="description-item">
+                <span class="description-bullet">•</span>
+                <p>
+                  <strong>Consenso &amp; variabilidade:</strong> gráfico de
+                  desvio-padrão indica alta concordância entre modelos apenas
+                  nos extremos; Random Forest exibe melhor equilíbrio entre
+                  acurácia estatística e plausibilidade clínica.
                 </p>
               </div>
             </div>
@@ -55,11 +90,18 @@
         </div>
       </div>
 
+      <!-- NAVEGAÇÃO -->
       <div class="navigation">
         <a href="slide-47.html" class="nav-button">← Anterior</a>
         <a href="../index.html" class="nav-button">Menu</a>
         <a href="slide-49.html" class="nav-button">Próximo →</a>
       </div>
     </div>
+
+    <!-- respiro extra -->
+    <style>
+      .description-content { margin-bottom: 60px; }
+    </style>
+    <script src="../zoom-simple.js"></script>
   </body>
 </html>

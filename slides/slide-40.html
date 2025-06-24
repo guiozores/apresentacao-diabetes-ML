@@ -11,14 +11,14 @@
     <div class="presentation-container">
       <div class="slide-content">
         <h2 class="slide-title">Resultados de Treinamento</h2>
-        <h3 class="slide-subtitle">Análise de Performance - Parte V</h3>
+        <h3 class="slide-subtitle">Análise de Performance&nbsp;- Parte V</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
               <img
                 src="../assets/RESULT-TREINA-05.png"
-                alt="Resultados de treinamento dos modelos - Parte 5"
+                alt="Distribuição da importância das variáveis em todos os modelos"
                 class="main-image"
               />
               <p class="image-source">Fonte: elaborado pelo autor</p>
@@ -30,15 +30,29 @@
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Precisão e Recall:</strong> balanceamento entre falsos
-                  positivos e falsos negativos
+                  <strong>Consenso entre algoritmos:</strong> em todas as
+                  arquiteturas, o núcleo preditivo se concentra em
+                  <em>Glucose</em>, <em>BMI</em>, <em>Age</em> e
+                  <em>Diabetes Pedigree Function</em>, sinalizando robustez do
+                  padrão clínico independentemente da técnica empregada.
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>F1-Score:</strong> métrica harmônica para avaliação
-                  equilibrada dos modelos
+                  <strong>Glucose permanece líder, mas com alta dispersão:</strong>
+                  o intervalo interquartil (≈ 17 % – 39 %) reflete diferenças na
+                  forma de cálculo de importância entre modelos, embora o
+                  protagonismo da glicemia seja inquestionável.
+                </p>
+              </div>
+              <div class="description-item">
+                <span class="description-bullet">•</span>
+                <p>
+                  <strong>Demais variáveis &lt; 10 %:</strong> Blood Pressure,
+                  Skin Thickness e Insulin mantêm influência residual,
+                  corroborando a hierarquia já observada na AED e nas correlações
+                  bivariadas.
                 </p>
               </div>
             </div>

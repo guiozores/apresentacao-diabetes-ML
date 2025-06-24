@@ -1,5 +1,9 @@
 /* Slide 39 - Resultados de Treinamento 04 */
 
+body {
+  overflow-y: auto;
+}
+
 .main-content {
   display: flex;
   flex-direction: column;
@@ -56,6 +60,7 @@
   border-top: 3px solid #007acc;
   max-width: 800px;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .description-item {
@@ -80,6 +85,7 @@
   margin: 0;
   line-height: 1.4;
   font-size: 0.85em;
+  text-align: justify;
 }
 
 .description-item strong {

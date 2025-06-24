@@ -3,49 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 47 - Otimização de Hiperparâmetros</title>
+    <title>Slide 47 – Threshold 0,5 × 0,4</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-47.css" />
   </head>
+
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">Convergência e Estabilidade - Parte VI</h3>
+        <h2 class="slide-title">Avaliação Pós-Otimização</h2>
+        <h3 class="slide-subtitle">
+          Impacto da recalibração do limiar (0,5&nbsp;→&nbsp;0,4)
+        </h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
-              <img
-                src="../assets/OTIMIZA-06.png"
-                alt="Otimização de hiperparâmetros - Convergência"
-                class="main-image"
-              />
+              <div class="image-wrapper">
+                <img
+                  src="../assets/OTIMIZA-06.png"
+                  alt="Comparação matrizes de confusão – threshold 0,5 vs 0,4"
+                  class="main-image"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.5"
+                  data-lens-shape="rectangle"
+                  data-lens-width="243"
+                  data-lens-height="213"
+                  data-zoom-box-width="500"
+                  data-zoom-box-height="600"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
             </div>
           </div>
 
+          <!-- COMENTÁRIOS-CHAVE -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Curvas de convergência:</strong> análise do
-                  comportamento dos algoritmos durante o processo de otimização
+                  <strong>Random Forest:</strong> maior salto de recall
+                  (+19 p.p., 0,796) e F1 (+3,5 p.p.), custo de
+                  especificidade –12 p.p. — ainda razoável (0,700). Melhor ganho
+                  líquido entre os quatro.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Estabilidade temporal:</strong> verificação da
-                  consistência dos resultados em múltiplas execuções
+                  <strong>Gradient Boosting:</strong> recall sobe
+                  0,741 → 0,796 (+7 p.p.) mantendo a mesma especificidade
+                  0,760; F1 +1,5 p.p. — perfil equilibrado, continua forte
+                  concorrente.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Critérios de parada:</strong> definição dos limites
-                  para interrupção do processo de busca
+                  <strong>Logistic Regression:</strong> ganho consistente
+                  (Sens +11 p.p., F1 +4 p.p.) com queda moderada de
+                  especificidade (–8 p.p.). Modelo leve e interpretável — vale
+                  nova rodada de ajuste fino.
+                </p>
+              </div>
+
+              <div class="description-item">
+                <span class="description-bullet">•</span>
+                <p>
+                  <strong>AdaBoost:</strong> recall extremo 0,981 (+32 p.p.),
+                  porém especificidade despenca para 0,360 (–53 p.p.) e F1
+                  degrada (–6 p.p.) — descartado pelo excesso de
+                  falsos-positivos.
                 </p>
               </div>
             </div>
@@ -53,11 +84,18 @@
         </div>
       </div>
 
+      <!-- NAVEGAÇÃO -->
       <div class="navigation">
         <a href="slide-46.html" class="nav-button">← Anterior</a>
         <a href="../index.html" class="nav-button">Menu</a>
         <a href="slide-48.html" class="nav-button">Próximo →</a>
       </div>
     </div>
+
+    <!-- Espaço extra para não colar na navbar -->
+    <style>
+      .description-content { margin-bottom: 60px; }
+    </style>
+    <script src="../zoom-simple.js"></script>
   </body>
 </html>

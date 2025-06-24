@@ -3,49 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 44 - Otimização de Hiperparâmetros</title>
+    <title>Slide 44 - Otimização de Threshold</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-44.css" />
   </head>
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">Processo de Validação - Parte III</h3>
+        <h2 class="slide-title">Otimização de Threshold</h2>
+        <h3 class="slide-subtitle">Análise Completa – Random Forest</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
-              <img
-                src="../assets/OTIMIZA-03.png"
-                alt="Otimização de hiperparâmetros - Validação"
-                class="main-image"
-              />
+              <div class="image-wrapper">
+                <img
+                  src="../assets/OTIMIZA-03.png"
+                  alt="Análise de threshold – Random Forest"
+                  class="main-image"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.0"
+                  data-lens-shape="rectangle"
+                  data-lens-width="320"
+                  data-lens-height="240"
+                  data-zoom-box-width="644"
+                  data-zoom-box-height="492"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
+              <p class="zoom-instruction">
+                💡 Clique na imagem para ativar o zoom; clique novamente para
+                desativar.
+              </p>
             </div>
           </div>
 
+          <!-- DESCRIÇÃO -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Cross-validation:</strong> particionamento dos dados
-                  em k-folds para validação robusta dos modelos
+                  <strong>Threshold 0,4 mantém equilíbrio:</strong> sensibilidade
+                  0,796 (idêntica ao Gradient Boosting) com especificidade
+                  0,700 — ligeira queda face ao GB (0,760), mas ainda superior
+                  ao AdaBoost, que colapsou para 0,36.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Scoring estratificado:</strong> avaliação balanceada
-                  considerando a distribuição das classes
+                  <strong>Menor explosão de FPs:</strong> 30 falsos-positivos
+                  vs 24 do GB e 64 do AdaBoost; custo operacional permanece
+                  administrável em triagem clínica.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Comparação sistemática:</strong> análise estatística
-                  das performances entre diferentes configurações
+                  <strong>Precisão mais alta (0,589):</strong> ganho relevante
+                  sobre o AdaBoost (0,453) e 8 pontos acima do GB, confirmando
+                  o Random Forest como melhor compromisso recall-precisão entre
+                  os três candidatos.
                 </p>
               </div>
             </div>
@@ -59,5 +80,11 @@
         <a href="slide-45.html" class="nav-button">Próximo →</a>
       </div>
     </div>
+
+    <!-- respiro para não colar a navbar -->
+    <style>
+      .description-content { margin-bottom: 60px; }
+    </style>
+    <script src="../zoom-simple.js"></script>
   </body>
 </html>

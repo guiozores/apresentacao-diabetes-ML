@@ -18,7 +18,7 @@
             <div class="image-container">
               <img
                 src="../assets/NORMAL-01.png"
-                alt="Normalização dos dados - comparação antes e após"
+                alt="Boxplot – Dados de treino normalizados"
                 class="main-image"
               />
               <p class="image-source">Fonte: elaborado pelo autor</p>
@@ -30,15 +30,18 @@
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Min-Max Scaling:</strong> normalização dos dados para
-                  escala [0,1] preservando distribuições
+                  <strong>Padronização (Z-score):</strong> cada variável foi
+                  reescalada para média&nbsp;0 e desvio-padrão&nbsp;1, evitando
+                  que features de maior magnitude dominem o aprendizado.
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Padronização:</strong> equalização das escalas entre
-                  diferentes variáveis para melhor performance dos modelos
+                  <strong>Resultado chave:</strong> o boxplot evidencia a linha
+                  tracejada (média&nbsp;= 0) centralizada em todas as features,
+                  com amplitudes semelhantes — sinal de variância preservada e
+                  escalas agora comparáveis, conforme discutido nos resultados.
                 </p>
               </div>
             </div>

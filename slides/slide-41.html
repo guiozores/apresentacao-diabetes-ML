@@ -11,14 +11,14 @@
     <div class="presentation-container">
       <div class="slide-content">
         <h2 class="slide-title">Resultados de Treinamento</h2>
-        <h3 class="slide-subtitle">Análise de Performance - Parte VI</h3>
+        <h3 class="slide-subtitle">Análise de Performance&nbsp;- Parte VI</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
               <img
                 src="../assets/RESULT-TREINA-06.png"
-                alt="Resultados de treinamento dos modelos - Parte 6"
+                alt="Validação cruzada 5-fold – média e desvio por modelo"
                 class="main-image"
               />
               <p class="image-source">Fonte: elaborado pelo autor</p>
@@ -30,15 +30,20 @@
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Síntese final:</strong> consolidação dos resultados e
-                  identificação do melhor modelo
+                  <strong>Robustez superior:</strong> Random Forest apresentou o
+                  maior AUC&nbsp;médio (0,916 ± 0,021), seguido por XGBoost
+                  (0,905 ± 0,029) e Gradient Boosting (0,897 ± 0,017),
+                  confirmando elevada capacidade de generalização.
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Conclusões:</strong> análise comparativa final para
-                  seleção do algoritmo ótimo
+                  <strong>Estabilidade destacada:</strong> AdaBoost exibiu o
+                  menor desvio (± 0,014), evidenciando consistência interna,
+                  ainda que com média ligeiramente inferior (0,870). Modelos com
+                  AUC&nbsp;&lt;&nbsp;0,80 (Decision Tree) foram descartados por
+                  falta de performance e alta variabilidade.
                 </p>
               </div>
             </div>

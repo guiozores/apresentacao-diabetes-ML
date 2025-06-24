@@ -11,7 +11,7 @@
     <div class="presentation-container">
       <div class="slide-content">
         <h2 class="slide-title">Resultados de Treinamento</h2>
-        <h3 class="slide-subtitle">Análise de Performance - Parte II</h3>
+        <h3 class="slide-subtitle">Análise de Performance - Parte&nbsp;II</h3>
 
         <div class="main-content">
           <div class="image-section">
@@ -19,7 +19,7 @@
               <div class="image-wrapper">
                 <img
                   src="../assets/RESULT-TREINA-02.png"
-                  alt="Resultados de treinamento dos modelos - Parte 2"
+                  alt="Curvas ROC – ranking de performance"
                   class="main-image"
                   id="zoomableImage"
                 />
@@ -28,8 +28,8 @@
               </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
               <p class="zoom-instruction">
-                💡 Clique na imagem para ativar o zoom, clique novamente para
-                desativar
+                💡 Clique na imagem para ativar o zoom; clique novamente para
+                desativar.
               </p>
             </div>
           </div>
@@ -39,15 +39,19 @@
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Validação cruzada:</strong> análise de estabilidade e
-                  consistência dos modelos
+                  <strong>Ranking por AUC:</strong> AdaBoost (0,842), Gradient
+                  Boosting (0,821), Random&nbsp;Forest (0,817) e Regressão
+                  Logística (0,815) superam a linha de excelência (AUC ≥ 0,80),
+                  confirmando a forte capacidade de discriminação dos melhores
+                  modelos.
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Comparação detalhada:</strong> avaliação de métricas
-                  específicas por algoritmo
+                  <strong>Modelos descartados:</strong> kNN, Decision Tree e
+                  Naive Bayes (AUC &lt; 0,75) exibem baixo poder discriminativo
+                  e não avançam para a otimização de thresholds.
                 </p>
               </div>
             </div>

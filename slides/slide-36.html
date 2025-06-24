@@ -17,7 +17,7 @@
     <div class="presentation-container">
       <div class="slide-content">
         <h2 class="slide-title">Resultados de Treinamento</h2>
-        <h3 class="slide-subtitle">Análise de Performance&nbsp;- Parte I</h3>
+        <h3 class="slide-subtitle">Análise de Performance&nbsp;- Parte&nbsp;I</h3>
 
         <div class="main-content">
           <!-- IMAGEM + ZOOM -->
@@ -26,7 +26,7 @@
               <div class="image-wrapper" id="imgWrapper">
                 <img
                   src="../assets/RESULT-TREINA-01.png"
-                  alt="Resultados de treinamento dos modelos - Parte 1"
+                  alt="Matrizes de confusão dos modelos no conjunto de teste"
                   class="main-image"
                   id="zoomableImage"
                   data-zoom-enabled="true"
@@ -53,15 +53,20 @@
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Métricas iniciais:</strong> comparação de performance
-                  entre diferentes algoritmos de machine learning
+                  <strong>Ensembles na dianteira:</strong> AdaBoost (AUC = 0,842),
+                  Gradient&nbsp;Boosting (0,821) e Random&nbsp;Forest (0,817)
+                  apresentam a melhor combinação de acertos (VP ≥ 36) e baixa
+                  incidência de falsos-negativos (FN ≤ 18), superando os
+                  demais algoritmos.
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Baseline:</strong> estabelecimento dos resultados de
-                  referência para análise comparativa
+                  <strong> Cenário evidenciado:</strong> mesmo nos melhores
+                  modelos ainda restam 14-18 FN — casos de diabetes não
+                  detectados. Reduzir esse risco motivará a otimização do
+                  limiar de decisão (threshold) apresentada nos próximos slides.
                 </p>
               </div>
             </div>

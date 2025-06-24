@@ -3,49 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 46 - Otimização de Hiperparâmetros</title>
+    <title>Slide 46 - Avaliação Final dos Modelos</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-46.css" />
   </head>
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">Análise de Sensibilidade - Parte V</h3>
+        <h2 class="slide-title">Avaliação Pós-Otimização</h2>
+        <h3 class="slide-subtitle">Matrizes de Confusão – Threshold 0,4</h3>
 
         <div class="main-content">
+          <!-- IMAGEM + ZOOM -->
           <div class="image-section">
             <div class="image-container">
-              <img
-                src="../assets/OTIMIZA-05.png"
-                alt="Otimização de hiperparâmetros - Análise de sensibilidade"
-                class="main-image"
-              />
+              <div class="image-wrapper">
+                <img
+                  src="../assets/OTIMIZA-05.png"
+                  alt="Matrizes de confusão dos quatro modelos finalistas"
+                  class="main-image"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.0"
+                  data-lens-shape="rectangle"
+                  data-lens-width="320"
+                  data-lens-height="240"
+                  data-zoom-box-width="644"
+                  data-zoom-box-height="492"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
+              <p class="zoom-instruction">
+                💡 Clique na imagem para ativar o zoom; clique novamente para
+                desativar.
+              </p>
             </div>
           </div>
 
+          <!-- DESCRIÇÃO -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Impacto dos parâmetros:</strong> avaliação da
-                  influência de cada hiperparâmetro na performance final
+                  <strong>Equilíbrio por modelo:</strong> Gradient Boosting
+                  lidera em acurácia 0,773 / especificidade 0,760; Random Forest
+                  mantém bom balanço (Acc 0,734 / Spec 0,700) e obtém a melhor
+                  precisão 0,589. AdaBoost maximiza recall (Sens 0,981) à custa
+                  de especificidade 0,360; Regressão Logística situa-se entre RF
+                  e GB.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Superfície de resposta:</strong> visualização do
-                  comportamento dos modelos no espaço paramétrico
+                  <strong>Custos de FP × FN:</strong> AdaBoost produz 64 FP
+                  (64 % dos não-diabéticos), inviável clinicamente. GB (24 FP) e
+                  RF (30 FP) mantêm falsos-positivos em nível gerenciável,
+                  reduzindo FNs para 11 – queda de 35 % em relação ao limiar
+                  0,5.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Robustez das configurações:</strong> análise da
-                  estabilidade dos resultados otimizados
+                  <strong>Próximo passo:</strong> Random Forest desponta como
+                  candidato mais promissor, mas a decisão definitiva será
+                  apresentada no slide final, após ponderar fatores qualitativos,
+                  interpretabilidade, % de risco por perfil sintético e custo operacional.
                 </p>
               </div>
             </div>
@@ -53,11 +79,20 @@
         </div>
       </div>
 
+      <!-- NAVEGAÇÃO -->
       <div class="navigation">
         <a href="slide-45.html" class="nav-button">← Anterior</a>
         <a href="../index.html" class="nav-button">Menu</a>
         <a href="slide-47.html" class="nav-button">Próximo →</a>
       </div>
     </div>
+
+    <!-- Respiro para não colar na navbar -->
+    <style>
+      .description-content {
+        margin-bottom: 60px;
+      }
+    </style>
+    <script src="../zoom-simple.js"></script>
   </body>
 </html>

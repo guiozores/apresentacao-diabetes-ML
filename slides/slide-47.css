@@ -29,11 +29,9 @@
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
 }
 
 .main-image:hover {
-  transform: scale(1.02);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -85,6 +83,7 @@
   margin: 0;
   line-height: 1.4;
   font-size: 0.9em;
+  text-align: justify;
 }
 
 .description-item strong {

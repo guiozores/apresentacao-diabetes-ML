@@ -1,125 +1,87 @@
-/* Slide 2: O Problema - Estilos Específicos */
+/* =======================================================
+   SLIDE 2 – O PROBLEMA
+   ======================================================= */
 
-/* ===== PROBLEM LAYOUT (ESPECÍFICO DO SLIDE 2) ===== */
+/* ===== LAYOUT PRINCIPAL DO BLOCO ===================== */
 .problem-layout {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1.8fr;   /* texto : gráfico (proporção mais suave) */
+  gap: 2.5rem;
   width: 100%;
-  align-items: start;
+  align-items: center;                 /* centraliza verticalmente */
   margin-top: 2rem;
 }
 
+/* ===== CONTÊINER DO GRÁFICO ========================== */
 .obesity-chart-container {
   background: var(--surface);
-  padding: 2rem;
+  padding: 1.6rem 1.8rem;
   border-radius: 16px;
   border: 1px solid var(--border);
-}
-
-/* Simple Line Chart Styles */
-.simple-line-chart {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  align-items: center;                 /* centraliza tudo dentro */
+  gap: 1.4rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04); /* leve profundidade */
 }
 
-.chart-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ===== MINI-GRÁFICO SVG ============================== */
+.mini-chart-wrapper {
   width: 100%;
-  max-width: 300px;
-  padding: 2rem 0;
+  max-width: 240px;                   /* tamanho equilibrado */
+  margin-inline: auto;
 }
 
-.chart-point {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  z-index: 2;
+.mini-chart {
+  width: 100%;
+  height: auto;
+  overflow: visible;
 }
 
-.point-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--primary-blue);
-  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.2);
-  animation: pulse 2s ease-in-out infinite;
+.chart-year {
+  font-size: 0.9rem;
+  fill: var(--text-secondary);
+  font-family: "Inter", "SF Pro Display", sans-serif;
 }
 
-.point-label {
-  text-align: center;
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.2;
-}
-
-.point-label strong {
-  color: var(--text-primary);
-  font-size: 1.3rem;
+.chart-value {
+  font-size: 0.95rem;
   font-weight: 600;
+  fill: #007aff;
+  font-family: "Inter", "SF Pro Display", sans-serif;
 }
 
-.connecting-line {
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  right: 20px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark));
-  transform: translateY(-50%);
-  z-index: 1;
-  border-radius: 1px;
-}
-
+/* ===== RESUMO DA TENDÊNCIA =========================== */
 .chart-summary {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  background: rgba(255, 107, 53, 0.1);
-  padding: 1rem 1.5rem;
+  justify-content: center;           /* centralizado */
+  gap: 0.6rem;
+  background: rgba(0, 122, 255, 0.08);
+  padding: 0.8rem 1.2rem;
   border-radius: 12px;
-  border-left: 4px solid #ff6b35;
+  border-left: 4px solid #007aff;
 }
 
 .trend-icon {
-  font-size: 2rem;
-  color: #ff6b35;
-  font-weight: bold;
+  font-size: 1.2rem;
+  color: #007aff;
 }
 
 .trend-text {
-  font-size: 1.1rem;
+  font-size: 0.93rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-
-/* ===== RESPONSIVE ADJUSTMENTS FOR PROBLEM LAYOUT ===== */
+/* ===== RESPONSIVO ==================================== */
 @media (max-width: 768px) {
   .problem-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;       /* empilha colunas */
     gap: 2rem;
   }
 
-  .chart-content {
-    max-width: 250px;
+  .mini-chart-wrapper {
+    max-width: 200px;                 /* ligeiramente menor no mobile */
   }
 }

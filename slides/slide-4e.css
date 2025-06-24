@@ -263,6 +263,46 @@
   color: #374151;
 }
 
+/* Indicador de threshold */
+.threshold-indicator {
+  margin-top: 8px;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.threshold-line {
+  position: absolute;
+  top: -32px;
+  width: 2px;
+  height: 24px;
+  background: #dc2626;
+  transform: translateX(-1px);
+  z-index: 10;
+  border-radius: 1px;
+  box-shadow: 0 0 4px rgba(220, 38, 38, 0.3);
+}
+
+.threshold-line::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -3px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #dc2626;
+}
+
+.threshold-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #dc2626;
+  margin-left: 8px;
+}
+
 /* Resultado da predição */
 .prediction-result {
   display: flex;
@@ -429,16 +469,16 @@
   grid-row: 1;
 }
 
-.header-item.amarelo {
-  grid-column: 2;
-  background: linear-gradient(135deg, #eab308, #f59e0b);
-  box-shadow: 0 2px 4px rgba(234, 179, 8, 0.3);
-}
-
 .header-item.roxo {
-  grid-column: 3;
+  grid-column: 2;
   background: linear-gradient(135deg, #7c3aed, #8b5cf6);
   box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.header-item.amarelo {
+  grid-column: 3;
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  box-shadow: 0 2px 4px rgba(234, 179, 8, 0.3);
 }
 
 .matrix-row {
@@ -459,16 +499,16 @@
   grid-column: 1;
 }
 
-.row-header.amarelo {
-  grid-row: 2;
-  background: linear-gradient(135deg, #eab308, #f59e0b);
-  box-shadow: 0 2px 4px rgba(234, 179, 8, 0.3);
-}
-
 .row-header.roxo {
-  grid-row: 3;
+  grid-row: 2;
   background: linear-gradient(135deg, #7c3aed, #8b5cf6);
   box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.row-header.amarelo {
+  grid-row: 3;
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  box-shadow: 0 2px 4px rgba(234, 179, 8, 0.3);
 }
 
 .matrix-cell {
@@ -1074,6 +1114,131 @@
 .error-overlay.show {
   opacity: 1;
   visibility: visible;
+}
+
+/* Controle de threshold no modal */
+.threshold-adjustment {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 16px;
+  margin: 20px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.threshold-adjustment h5 {
+  margin: 0 0 15px 0;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.threshold-control {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.threshold-control input[type="range"] {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.threshold-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.threshold-control input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+
+.threshold-control .threshold-value {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.threshold-result {
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.threshold-result.correct {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+}
+
+.threshold-result.incorrect {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.threshold-result.neutral {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e2e8f0;
+}
+
+.result-text {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Estados do modal baseados no threshold */
+.error-explanation.threshold-correct {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.error-explanation.threshold-correct::before {
+  border-right-color: #22c55e;
+}
+
+.error-explanation.threshold-incorrect {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.error-explanation.threshold-incorrect::before {
+  border-right-color: #ef4444;
+}
+
+.error-explanation.threshold-neutral {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  box-shadow: 0 25px 50px -12px rgba(107, 114, 128, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.error-explanation.threshold-neutral::before {
+  border-right-color: #6b7280;
 }
 
 /* Responsividade */

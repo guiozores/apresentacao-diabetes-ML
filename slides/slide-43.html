@@ -3,49 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 43 - Otimização de Hiperparâmetros</title>
+    <title>Slide 43 - Otimização de Threshold</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-43.css" />
   </head>
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">Configuração dos Algoritmos - Parte II</h3>
+        <h2 class="slide-title">Otimização de Threshold</h2>
+        <h3 class="slide-subtitle">Análise Completa – Gradient Boosting</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
-              <img
-                src="../assets/OTIMIZA-02.png"
-                alt="Otimização de hiperparâmetros - Configuração"
-                class="main-image"
-              />
+              <div class="image-wrapper">
+                <img
+                  src="../assets/OTIMIZA-02.png"
+                  alt="Análise de threshold – Gradient Boosting"
+                  class="main-image"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.0"
+                  data-lens-shape="rectangle"
+                  data-lens-width="320"
+                  data-lens-height="240"
+                  data-zoom-box-width="644"
+                  data-zoom-box-height="492"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
+              <p class="zoom-instruction">
+                💡 Clique na imagem para ativar o zoom; clique novamente para
+                desativar.
+              </p>
             </div>
           </div>
 
+          <!-- DESCRIÇÃO -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Espaço de busca:</strong> definição dos intervalos e
-                  valores candidatos para cada hiperparâmetro dos modelos
+                  <strong>Ponto ótimo em 0,4:</strong> F1-Score encerra a curva
+                  aos&nbsp;0,696 com sensibilidade&nbsp;0,796 e
+                  especificidade&nbsp;0,760 – ganho equilibrado em relação ao
+                  limiar padrão&nbsp;0,5.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Estratégia combinatória:</strong> exploração
-                  sistemática de todas as combinações possíveis
+                  <strong>Trade-off controlado:</strong> matriz (0,4) reduz FN
+                  para&nbsp;11 (↓35 %) ao custo de 24 FP; mantém precisão
+                  aceitável (0,642) sem sobrecarregar o sistema de triagem.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Critérios de avaliação:</strong> métricas específicas
-                  para seleção da melhor configuração
+                  <strong>Suporte visual:</strong> heatmaps confirmam a região
+                  0,35 – 0,45 como faixa estável de F1; acima de 0,6 a perda de
+                  recall é abrupta, inviabilizando uso clínico.
                 </p>
               </div>
             </div>
@@ -59,5 +79,11 @@
         <a href="slide-44.html" class="nav-button">Próximo →</a>
       </div>
     </div>
+
+    <!-- respiro para não colar na navbar -->
+    <style>
+      .description-content { margin-bottom: 60px; }
+    </style>
+    <script src="../zoom-simple.js"></script>
   </body>
 </html>

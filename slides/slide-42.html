@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 42 - Otimização de Hiperparâmetros</title>
+    <title>Slide 42 - Otimização de Threshold</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-42.css" />
 
@@ -13,8 +13,8 @@
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">Metodologia e Abordagem - Parte I</h3>
+        <h2 class="slide-title">Otimização de Threshold</h2>
+        <h3 class="slide-subtitle">Análise Completa – AdaBoost</h3>
 
         <div class="main-content">
           <div class="image-section">
@@ -22,7 +22,7 @@
               <div class="image-wrapper">
                 <img
                   src="../assets/OTIMIZA-01.png"
-                  alt="Otimização de hiperparâmetros - Metodologia"
+                  alt="Análise de threshold – AdaBoost"
                   class="main-image"
                   data-zoom-enabled="true"
                   data-zoom-factor="2.0"
@@ -41,27 +41,35 @@
             </div>
           </div>
 
+          <!-- DESCRIÇÃO -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Grid Search:</strong> busca exaustiva em espaço de
-                  parâmetros predefinido para encontrar a melhor combinação
+                  <strong>Sensibilidade quase perfeita (98 %):</strong>
+                  threshold 0,4 reduz FNs de&nbsp;14 → 1, capturando
+                  praticamente todos os pacientes diabéticos.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Validação cruzada:</strong> técnica k-fold para
-                  avaliação robusta da performance dos modelos
+                  <strong>Custo clínico elevado:</strong> FPs saltam de 24 → 64,
+                  rotulando 64 % dos não-diabéticos como doentes
+                  (especificidade&nbsp;0,36; precisão&nbsp;0,45) — cenário
+                  impraticável pela quantidade de exames desnecessários.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Métricas de avaliação:</strong> múltiplas métricas
-                  para análise comparativa dos algoritmos
+                  <strong>Próximo passo:</strong> buscar corte intermediário que
+                  preserve recall aceitável sem comprometer a precisão, ou
+                  adotar outro modelo (Random Forest) que já apresenta melhor
+                  equilíbrio.
                 </p>
               </div>
             </div>

@@ -11,14 +11,14 @@
     <div class="presentation-container">
       <div class="slide-content">
         <h2 class="slide-title">Resultados de Treinamento</h2>
-        <h3 class="slide-subtitle">Análise de Performance - Parte III</h3>
+        <h3 class="slide-subtitle">Análise de Performance - Parte&nbsp;III</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
               <img
                 src="../assets/RESULT-TREINA-03.png"
-                alt="Resultados de treinamento dos modelos - Parte 3"
+                alt="Comparação Validação vs Teste – ranking de performance (AUC)"
                 class="main-image"
               />
               <p class="image-source">Fonte: elaborado pelo autor</p>
@@ -30,15 +30,19 @@
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Matriz de confusão:</strong> análise detalhada dos
-                  acertos e erros de classificação
+                  <strong>Consistência Val&nbsp;×&nbsp;Teste:</strong> AdaBoost,
+                  Gradient&nbsp;Boosting, Random&nbsp;Forest e Regressão
+                  Logística mantêm AUC&nbsp;alto com queda&nbsp;&lt;&nbsp;0,03,
+                  evidenciando boa capacidade de generalização.
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Sensibilidade:</strong> avaliação da capacidade de
-                  detectar casos positivos corretamente
+                  <strong>Critério de avanço:</strong> apenas modelos com
+                  AUC&nbsp;≥&nbsp;0,80 em ambos conjuntos seguem para otimização
+                  de threshold; kNN, Decision&nbsp;Tree e Naive&nbsp;Bayes são
+                  desclassificados pela forte queda de desempenho.
                 </p>
               </div>
             </div>

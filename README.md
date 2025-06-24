@@ -58,14 +58,26 @@ Abra no navegador: `http://localhost:8000` ou diretamente o arquivo `index.html`
 
 ### Estrutura da Apresentação
 
-A apresentação contém **30 slides organizados** cobrindo todo o processo de desenvolvimento:
+A apresentação contém slides organizados cobrindo todo o processo de desenvolvimento:
 
-1. **Slides 1-5**: Introdução, problema, objetivos e metodologia
-2. **Slides 6-10**: Entendimento e preparação dos dados
-3. **Slides 11-15**: Análise Exploratória de Dados (AED)
-4. **Slides 16-20**: Pré-processamento (outliers, normalização, SMOTE)
-5. **Slides 21-25**: Modelagem e treinamento
-6. **Slides 26-30**: Resultados, otimização e conclusões
+- **Slides 1-5**: Introdução, problema, objetivos e metodologia
+- **Slides 6-10**: Entendimento e preparação dos dados
+- **Slides 11-15**: Análise Exploratória de Dados (AED)
+- **Slides 16-20**: Pré-processamento (outliers, normalização, SMOTE)
+- **Slides 21-25**: Modelagem e treinamento
+- **Slides 26-30**: Resultados, otimização e conclusões
+
+### Modelos de Machine Learning Apresentados
+
+- Logistic Regression
+- Random Forest
+- Support Vector Machine (SVM)
+- Gradient Boosting
+- XGBoost
+- Decision Tree
+- AdaBoost
+- kNN
+- Naive Bayes
 
 ### Assets Disponíveis
 
@@ -86,16 +98,6 @@ O projeto inclui gráficos e visualizações organizados por categoria:
 - **Dataset**: Pima Indians Diabetes Database
 - **Linguagem**: Python com bibliotecas científicas (scikit-learn, pandas, matplotlib, seaborn)
 
-### Algoritmos Implementados
-
-1. **Regressão Logística**
-2. **K-Nearest Neighbors (KNN)**
-3. **Support Vector Machine (SVM)**
-4. **Decision Tree**
-5. **Random Forest**
-6. **Gradient Boosting**
-7. **Neural Networks (MLP)**
-
 ### Técnicas de Pré-processamento
 
 - **Tratamento de Outliers**: Método IQR (Interquartile Range)
@@ -111,25 +113,6 @@ O projeto inclui gráficos e visualizações organizados por categoria:
 - **F1-Score**: Harmônica entre precisão e recall
 - **AUC-ROC**: Área sob a curva ROC
 - **Matriz de Confusão**: Análise detalhada de erros
-
-1. Substitua os elementos com classe `image-placeholder` pelo caminho correto da imagem:
-
-   ```html
-   <div class="chart-container">
-     <img
-       src="assets/AED-01.png"
-       alt="Análise Exploratória - Distribuição de Classes"
-     />
-   </div>
-   ```
-
-2. **Exemplos de uso dos assets disponíveis**:
-   - **Análise Exploratória**: `assets/AED-01.png` a `assets/AED-08.png`
-   - **Pré-processamento**: `assets/PRE-PROCESS-01.png`, `assets/PRE-PROCESS-02.png`
-   - **Tratamento de Outliers**: `assets/IQR-01.png` a `assets/IQR-03.png`
-   - **Balanceamento SMOTE**: `assets/SMOTE-01.png`
-   - **Otimização**: `assets/OTIMIZA-01.png` a `assets/OTIMIZA-07.png`
-   - **Resultados**: `assets/RESULT-TREINA-01.png` a `assets/RESULT-TREINA-06.png`
 
 ## 🎨 Personalização
 
@@ -177,18 +160,11 @@ A apresentação se adapta automaticamente a diferentes tamanhos de tela:
 - **Smooth Transitions**: Animações suaves entre slides
 - **Print Styles**: Preparado para impressão (se necessário)
 
-## 🎯 Dicas para Apresentação
 
-1. **Teste Antecipadamente**: Abra em tela cheia antes da apresentação
-2. **Navegação**: Use as setas do teclado para controle preciso
-3. **Backup**: Tenha uma versão PDF como backup
-4. **Gráficos**: Adicione as figuras com boa resolução
-5. **Tempo**: Pratique os tempos de transição
-
-## � Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
-apresentacao-monografia/
+apresentacao-diabetes-ML/
 ├── index.html              # Página principal da apresentação
 ├── script.js               # Lógica de navegação e controles
 ├── styles.css              # Estilos globais
@@ -197,8 +173,6 @@ apresentacao-monografia/
 ├── index-original.html     # Versão original (backup)
 ├── Monografia.pdf          # Documento da monografia
 ├── README.md               # Este arquivo
-├── teste.py                # Script Python para testes
-├── Imagem1.png             # Imagem adicional
 ├── assets/                 # Gráficos e visualizações
 │   ├── AED-*.png          # Análise exploratória
 │   ├── PRE-PROCESS-*.png  # Pré-processamento
@@ -213,16 +187,6 @@ apresentacao-monografia/
     ├── slide-*-backup.html # Versões de backup
     └── slide-*-new.html   # Versões atualizadas
 ```
-
-## 🌟 Próximos Passos
-
-1. **Revisar Conteúdo**: Verifique se todos os slides estão atualizados
-2. **Testar Navegação**: Teste todos os controles de navegação
-3. **Verificar Assets**: Confirme se todas as imagens estão sendo carregadas
-4. **Praticar Apresentação**: Ensaie com os controles reais
-5. **Backup**: Mantenha uma versão PDF como segurança
-6. **Otimizar Performance**: Comprima imagens se necessário
-
 ## 🔧 Desenvolvimento e Contribuição
 
 ### Tecnologias Utilizadas
@@ -257,4 +221,3 @@ A monografia demonstrou que:
 
 ---
 
-**🎯 Preparado para uma apresentação de sucesso! 🚀**

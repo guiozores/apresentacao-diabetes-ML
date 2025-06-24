@@ -32,49 +32,43 @@ class IpeClassifier {
   generateDataset() {
     const dataset = [];
 
-    // Gerar 20 amostras de Ipê Roxo (com muitos casos difíceis)
+    // Gerar 20 amostras de Ipê Roxo (classe negativa)
     for (let i = 0; i < 20; i++) {
-      let probRoxo, probAmarelo;
+      let probAmarelo; // Probabilidade da classe positiva
 
       if (i < 10) {
-        // 50% das amostras roxas são "fáceis" de classificar
-        probRoxo = Math.random() * 0.25 + 0.6; // 0.6 - 0.85
+        // 50% das amostras roxas são "fáceis" de classificar (baixa prob. de amarelo)
         probAmarelo = Math.random() * 0.25 + 0.15; // 0.15 - 0.4
       } else {
-        // 50% das amostras roxas são "difíceis" - alta chance de erro
-        probRoxo = Math.random() * 0.5 + 0.25; // 0.25 - 0.75 (muito incerto)
-        probAmarelo = Math.random() * 0.5 + 0.25; // 0.25 - 0.75 (muito incerto)
+        // 50% das amostras roxas são "difíceis" - podem confundir o modelo
+        probAmarelo = Math.random() * 0.5 + 0.25; // 0.25 - 0.75 (incerto)
       }
 
       dataset.push({
         id: i + 1,
-        tipo: "roxo",
+        tipo: "roxo", // classe negativa
         imagem: "../assets/IPE-ROXO.webp",
-        probabilidadeRoxo: probRoxo,
-        probabilidadeAmarelo: probAmarelo,
+        probabilidadeAmarelo: probAmarelo, // probabilidade da classe positiva
       });
     }
 
-    // Gerar 20 amostras de Ipê Amarelo (com muitos casos difíceis)
+    // Gerar 20 amostras de Ipê Amarelo (classe positiva)
     for (let i = 0; i < 20; i++) {
-      let probRoxo, probAmarelo;
+      let probAmarelo; // Probabilidade da classe positiva
 
       if (i < 10) {
-        // 50% das amostras amarelas são "fáceis" de classificar
-        probRoxo = Math.random() * 0.25 + 0.15; // 0.15 - 0.4
+        // 50% das amostras amarelas são "fáceis" de classificar (alta prob. de amarelo)
         probAmarelo = Math.random() * 0.25 + 0.6; // 0.6 - 0.85
       } else {
-        // 50% das amostras amarelas são "difíceis" - alta chance de erro
-        probRoxo = Math.random() * 0.5 + 0.25; // 0.25 - 0.75 (muito incerto)
-        probAmarelo = Math.random() * 0.5 + 0.25; // 0.25 - 0.75 (muito incerto)
+        // 50% das amostras amarelas são "difíceis" - podem confundir o modelo
+        probAmarelo = Math.random() * 0.5 + 0.25; // 0.25 - 0.75 (incerto)
       }
 
       dataset.push({
         id: i + 21,
-        tipo: "amarelo",
+        tipo: "amarelo", // classe positiva
         imagem: "../assets/IPE-AMARELO.webp",
-        probabilidadeRoxo: probRoxo,
-        probabilidadeAmarelo: probAmarelo,
+        probabilidadeAmarelo: probAmarelo, // probabilidade da classe positiva
       });
     }
 
@@ -101,10 +95,10 @@ class IpeClassifier {
       sampleImage: document.querySelector(".sample-image"),
 
       // Probabilidades
-      probRoxo: document.getElementById("probRoxo"),
-      probRoxoValue: document.getElementById("probRoxoValue"),
       probAmarelo: document.getElementById("probAmarelo"),
       probAmareloValue: document.getElementById("probAmareloValue"),
+      thresholdLine: document.getElementById("thresholdLine"),
+      thresholdDisplay: document.getElementById("thresholdDisplay"),
 
       // Predição
       prediction: document.getElementById("prediction"),
@@ -163,6 +157,7 @@ class IpeClassifier {
     this.elements.threshold.addEventListener("input", (e) => {
       this.threshold = parseFloat(e.target.value);
       this.elements.thresholdValue.textContent = this.threshold.toFixed(2);
+      this.updateThresholdDisplay();
       this.updateMetrics();
       this.updateThresholdInsight();
     });
@@ -176,6 +171,11 @@ class IpeClassifier {
     this.elements.errorContinue.addEventListener("click", () => {
       this.hideErrorExplanation();
     });
+  }
+
+  updateInterface() {
+    this.updateThresholdDisplay();
+    this.updateMetrics();
   }
 
   async play() {
@@ -262,40 +262,33 @@ class IpeClassifier {
   }
 
   async showProbabilities(sample) {
-    // Animar barras de probabilidade
-    const probRoxo = sample.probabilidadeRoxo;
+    // Mostrar apenas a probabilidade da classe positiva (Ipê Amarelo)
     const probAmarelo = sample.probabilidadeAmarelo;
+    const probAmareloPercent = (probAmarelo * 100).toFixed(1);
 
-    // Normalizar para somar 100%
-    const total = probRoxo + probAmarelo;
-    const normalizedRoxo = (probRoxo / total) * 100;
-    const normalizedAmarelo = (probAmarelo / total) * 100;
+    // Animar barra de probabilidade da classe positiva
+    this.elements.probAmarelo.style.width = probAmareloPercent + "%";
+    this.elements.probAmareloValue.textContent = probAmareloPercent + "%";
 
-    // Animar barra roxa
-    this.elements.probRoxo.style.width = normalizedRoxo + "%";
-    this.elements.probRoxoValue.textContent = normalizedRoxo.toFixed(1) + "%";
+    // Mostrar threshold visual
+    const thresholdPercent = (this.threshold * 100).toFixed(0);
+    this.elements.thresholdDisplay.textContent = thresholdPercent + "%";
+    if (this.elements.thresholdLine) {
+      this.elements.thresholdLine.style.left = thresholdPercent + "%";
+    }
 
-    await this.delay(200 / this.animationSpeed);
-
-    // Animar barra amarela
-    this.elements.probAmarelo.style.width = normalizedAmarelo + "%";
-    this.elements.probAmareloValue.textContent =
-      normalizedAmarelo.toFixed(1) + "%";
-
-    await this.delay(300 / this.animationSpeed);
+    await this.delay(500 / this.animationSpeed);
   }
 
   async makePrediction(sample) {
-    // Fazer predição baseada no threshold
-    const probRoxo =
-      sample.probabilidadeRoxo /
-      (sample.probabilidadeRoxo + sample.probabilidadeAmarelo);
-    const predicted = probRoxo >= this.threshold ? "roxo" : "amarelo";
+    // Fazer predição baseada no threshold (classificação binária correta)
+    const probAmarelo = sample.probabilidadeAmarelo; // probabilidade da classe positiva
+    const predicted = probAmarelo >= this.threshold ? "amarelo" : "roxo";
     const isCorrect = predicted === sample.tipo;
 
     // Mostrar predição
     this.elements.prediction.textContent =
-      predicted === "roxo" ? "IPÊ ROXO" : "IPÊ AMARELO";
+      predicted === "amarelo" ? "IPÊ AMARELO" : "IPÊ ROXO";
     this.elements.prediction.className = `prediction-value ${predicted}`;
 
     // Mostrar status do resultado
@@ -311,32 +304,30 @@ class IpeClassifier {
     // Se houve erro, pausar e mostrar explicação
     if (!isCorrect) {
       this.pause();
-      await this.showErrorExplanation(sample, predicted, probRoxo);
+      await this.showErrorExplanation(sample, predicted, probAmarelo);
     }
   }
 
   updateConfusionMatrix(sample) {
-    const probRoxo =
-      sample.probabilidadeRoxo /
-      (sample.probabilidadeRoxo + sample.probabilidadeAmarelo);
-    const predicted = probRoxo >= this.threshold ? "roxo" : "amarelo";
+    const probAmarelo = sample.probabilidadeAmarelo; // probabilidade da classe positiva
+    const predicted = probAmarelo >= this.threshold ? "amarelo" : "roxo";
     const actual = sample.tipo;
 
     // Determinar tipo de resultado seguindo padrão sklearn
-    // Roxo = Positivo (classe de interesse), Amarelo = Negativo
+    // Amarelo = Positivo (classe de interesse), Roxo = Negativo
     let cellType;
     if (actual === "amarelo" && predicted === "amarelo") {
-      this.confusionMatrix.VN++; // Verdadeiro Negativo
-      cellType = "VN";
-    } else if (actual === "amarelo" && predicted === "roxo") {
+      this.confusionMatrix.VP++; // Verdadeiro Positivo
+      cellType = "VP";
+    } else if (actual === "roxo" && predicted === "amarelo") {
       this.confusionMatrix.FP++; // Falso Positivo
       cellType = "FP";
-    } else if (actual === "roxo" && predicted === "amarelo") {
+    } else if (actual === "amarelo" && predicted === "roxo") {
       this.confusionMatrix.FN++; // Falso Negativo
       cellType = "FN";
     } else if (actual === "roxo" && predicted === "roxo") {
-      this.confusionMatrix.VP++; // Verdadeiro Positivo
-      cellType = "VP";
+      this.confusionMatrix.VN++; // Verdadeiro Negativo
+      cellType = "VN";
     }
 
     // Animar célula correspondente
@@ -406,11 +397,21 @@ class IpeClassifier {
 
   getThresholdInsight() {
     if (this.threshold < 0.4) {
-      return "ALTA SENSIBILIDADE: detecta mais Ipês Roxos verdadeiros, mas classifica erroneamente alguns Ipês Amarelos como Roxos";
+      return "ALTA SENSIBILIDADE: detecta mais Ipês Amarelos verdadeiros, mas classifica erroneamente alguns Ipês Roxos como Amarelos";
     } else if (this.threshold >= 0.4 && this.threshold <= 0.6) {
       return "THRESHOLD EQUILIBRADO: balanço entre sensibilidade e especificidade - precisão esperada ~75-80%";
     } else {
-      return "ALTA ESPECIFICIDADE: evita classificar Ipês Amarelos como Roxos, mas perde alguns Ipês Roxos verdadeiros";
+      return "ALTA ESPECIFICIDADE: evita classificar Ipês Roxos como Amarelos, mas perde alguns Ipês Amarelos verdadeiros";
+    }
+  }
+
+  updateThresholdDisplay() {
+    const thresholdPercent = (this.threshold * 100).toFixed(0);
+    if (this.elements.thresholdDisplay) {
+      this.elements.thresholdDisplay.textContent = thresholdPercent + "%";
+    }
+    if (this.elements.thresholdLine) {
+      this.elements.thresholdLine.style.left = thresholdPercent + "%";
     }
   }
 
@@ -454,9 +455,9 @@ class IpeClassifier {
     if (total === 0) return "Iniciando análise de erros...";
 
     if (FP > FN) {
-      return `${FP} falsos positivos vs ${FN} falsos negativos - modelo "otimista": prefere dizer que é Roxo`;
+      return `${FP} falsos positivos vs ${FN} falsos negativos - modelo "otimista": prefere classificar como Amarelo`;
     } else if (FN > FP) {
-      return `${FN} falsos negativos vs ${FP} falsos positivos - modelo "conservador": prefere dizer que é Amarelo`;
+      return `${FN} falsos negativos vs ${FP} falsos positivos - modelo "conservador": prefere classificar como Roxo`;
     } else if (FP === FN && FP > 0) {
       return `${FP} falsos positivos = ${FN} falsos negativos - erros equilibrados entre as classes`;
     } else {
@@ -477,24 +478,26 @@ class IpeClassifier {
     this.dataset = this.shuffleArray(this.dataset);
 
     // Resetar interface
-    this.updateInterface();
+    this.resetInterface();
 
     // Resetar controles
     this.elements.playBtn.disabled = false;
     this.elements.pauseBtn.disabled = true;
   }
 
-  updateInterface() {
+  resetInterface() {
     // Resetar amostra atual
     this.elements.currentImage.src = "../assets/IPE-ROXO.webp";
     this.elements.sampleId.textContent = "1";
     this.elements.groundTruth.textContent = "Ipê Roxo";
 
     // Resetar probabilidades
-    this.elements.probRoxo.style.width = "0%";
-    this.elements.probRoxoValue.textContent = "0%";
     this.elements.probAmarelo.style.width = "0%";
     this.elements.probAmareloValue.textContent = "0%";
+    if (this.elements.thresholdDisplay) {
+      this.elements.thresholdDisplay.textContent =
+        (this.threshold * 100).toFixed(0) + "%";
+    }
 
     // Resetar predição
     this.elements.prediction.textContent = "Aguardando...";
@@ -523,32 +526,32 @@ class IpeClassifier {
       "Simulação concluída. 40 amostras processadas. Utilize o botão Reset para reiniciar a análise.";
   }
 
-  async showErrorExplanation(sample, predicted, probRoxo) {
+  async showErrorExplanation(sample, predicted, probAmarelo) {
     const actual = sample.tipo;
-    const normalizedProbRoxo = (probRoxo * 100).toFixed(1);
-    const normalizedProbAmarelo = ((1 - probRoxo) * 100).toFixed(1);
+    const normalizedProbAmarelo = (probAmarelo * 100).toFixed(1);
+    const normalizedProbRoxo = ((1 - probAmarelo) * 100).toFixed(1);
 
     // Determinar tipo de erro
     let errorType, errorIcon, errorTitle, errorExplanation, errorDetails;
 
-    if (actual === "roxo" && predicted === "amarelo") {
+    if (actual === "amarelo" && predicted === "roxo") {
       // Falso Negativo
       errorType = "Falso Negativo";
       errorIcon = "!";
       errorTitle = "Falso Negativo - Classificação Incorreta";
 
       if (this.threshold > 0.7) {
-        errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. Isso acontece quando o threshold está muito alto (${this.threshold.toFixed(
+        errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. Isso acontece quando o threshold está muito alto (${this.threshold.toFixed(
           2
         )}), tornando o modelo muito rigoroso.`;
-        errorDetails = `Com ${normalizedProbRoxo}% de probabilidade para Roxo, ficou abaixo do threshold de ${(
+        errorDetails = `Com ${normalizedProbAmarelo}% de probabilidade para Amarelo, ficou abaixo do threshold de ${(
           this.threshold * 100
         ).toFixed(
           0
-        )}%. Considere reduzir o threshold para capturar mais Ipês Roxos.`;
+        )}%. Considere reduzir o threshold para capturar mais Ipês Amarelos.`;
       } else {
-        errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. Características visuais ambíguas desta amostra dificultaram a classificação correta.`;
-        errorDetails = `Com ${normalizedProbRoxo}% de probabilidade para Roxo, ficou abaixo do threshold de ${(
+        errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. Características visuais ambíguas desta amostra dificultaram a classificação correta.`;
+        errorDetails = `Com ${normalizedProbAmarelo}% de probabilidade para Amarelo, ficou abaixo do threshold de ${(
           this.threshold * 100
         ).toFixed(
           0
@@ -561,17 +564,17 @@ class IpeClassifier {
       errorTitle = "Falso Positivo - Classificação Incorreta";
 
       if (this.threshold < 0.3) {
-        errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. Isso acontece quando o threshold está muito baixo (${this.threshold.toFixed(
+        errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. Isso acontece quando o threshold está muito baixo (${this.threshold.toFixed(
           2
         )}), tornando o modelo muito sensível.`;
-        errorDetails = `Com ${normalizedProbRoxo}% de probabilidade para Roxo, ficou acima do threshold de ${(
+        errorDetails = `Com ${normalizedProbAmarelo}% de probabilidade para Amarelo, ficou acima do threshold de ${(
           this.threshold * 100
         ).toFixed(
           0
         )}%. Considere aumentar o threshold para reduzir falsos positivos.`;
       } else {
-        errorExplanation = `O modelo classificou um Ipê AMARELO como ROXO. Características visuais similares desta amostra dificultaram a discriminação entre as classes.`;
-        errorDetails = `Com ${normalizedProbRoxo}% de probabilidade para Roxo, ficou acima do threshold de ${(
+        errorExplanation = `O modelo classificou um Ipê ROXO como AMARELO. Características visuais similares desta amostra dificultaram a discriminação entre as classes.`;
+        errorDetails = `Com ${normalizedProbAmarelo}% de probabilidade para Amarelo, ficou acima do threshold de ${(
           this.threshold * 100
         ).toFixed(
           0

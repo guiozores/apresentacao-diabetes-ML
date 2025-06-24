@@ -46,21 +46,20 @@
             </div>
 
             <div class="probability-section">
-              <h5>Probabilidades:</h5>
+              <h5>Probabilidade do Modelo:</h5>
               <div class="probability-bars">
-                <div class="prob-bar roxo">
-                  <span class="prob-label">Ipê Roxo</span>
-                  <div class="prob-container">
-                    <div class="prob-fill" id="probRoxo"></div>
-                    <span class="prob-value" id="probRoxoValue">0%</span>
-                  </div>
-                </div>
                 <div class="prob-bar amarelo">
-                  <span class="prob-label">Ipê Amarelo</span>
+                  <span class="prob-label">Ipê Amarelo (Classe Positiva)</span>
                   <div class="prob-container">
                     <div class="prob-fill" id="probAmarelo"></div>
                     <span class="prob-value" id="probAmareloValue">0%</span>
                   </div>
+                </div>
+                <div class="threshold-indicator">
+                  <span class="threshold-line" id="thresholdLine"></span>
+                  <span class="threshold-text"
+                    >Threshold: <span id="thresholdDisplay">50%</span></span
+                  >
                 </div>
               </div>
             </div>
@@ -97,12 +96,12 @@
               <div class="confusion-matrix">
                 <div class="matrix-headers">
                   <div class="header-empty"></div>
-                  <div class="header-item amarelo">Amarelo</div>
                   <div class="header-item roxo">Roxo</div>
+                  <div class="header-item amarelo">Amarelo</div>
                 </div>
 
                 <div class="matrix-row">
-                  <div class="row-header amarelo">Amarelo</div>
+                  <div class="row-header roxo">Roxo</div>
                   <div class="matrix-cell vn" id="cellVN">
                     <div class="cell-value">0</div>
                     <div class="cell-label">VN</div>
@@ -116,7 +115,7 @@
                 </div>
 
                 <div class="matrix-row">
-                  <div class="row-header roxo">Roxo</div>
+                  <div class="row-header amarelo">Amarelo</div>
                   <div class="matrix-cell fn" id="cellFN">
                     <div class="cell-value">0</div>
                     <div class="cell-label">FN</div>

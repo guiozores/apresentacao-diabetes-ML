@@ -3,49 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 45 - Otimização de Hiperparâmetros</title>
+    <title>Slide 45 - Otimização de Threshold</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="slide-45.css" />
   </head>
   <body>
     <div class="presentation-container">
       <div class="slide-content">
-        <h2 class="slide-title">Otimização de Hiperparâmetros</h2>
-        <h3 class="slide-subtitle">Resultados da Otimização - Parte IV</h3>
+        <h2 class="slide-title">Otimização de Threshold</h2>
+        <h3 class="slide-subtitle">Análise Completa – Regressão Logística</h3>
 
         <div class="main-content">
           <div class="image-section">
             <div class="image-container">
-              <img
-                src="../assets/OTIMIZA-04.png"
-                alt="Otimização de hiperparâmetros - Resultados"
-                class="main-image"
-              />
+              <div class="image-wrapper">
+                <img
+                  src="../assets/OTIMIZA-04.png"
+                  alt="Análise de threshold – Regressão Logística"
+                  class="main-image"
+                  data-zoom-enabled="true"
+                  data-zoom-factor="2.0"
+                  data-lens-shape="rectangle"
+                  data-lens-width="320"
+                  data-lens-height="240"
+                  data-zoom-box-width="644"
+                  data-zoom-box-height="492"
+                />
+              </div>
               <p class="image-source">Fonte: elaborado pelo autor</p>
+              <p class="zoom-instruction">
+                💡 Clique na imagem para ativar o zoom; clique novamente para
+                desativar.
+              </p>
             </div>
           </div>
 
+          <!-- DESCRIÇÃO -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Melhores configurações:</strong> identificação dos
-                  hiperparâmetros ótimos para cada algoritmo testado
+                  <strong>Limiar 0,4 replica recall dos ensembles:</strong>
+                  sensibilidade&nbsp;0,796 (igual a Random Forest e Gradient
+                  Boosting) com especificidade&nbsp;0,650 – queda de ~5 p.p. em
+                  relação ao GB, mas ainda superior ao AdaBoost otimizado.
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Performance comparativa:</strong> análise das métricas
-                  obtidas com as configurações otimizadas
+                  <strong>Custo de FPs moderado:</strong> 35 falsos-positivos
+                  (↑ 11 FP vs RF e + 11 FP vs GB), mantendo precisão&nbsp;0,551 –
+                  valor intermediário entre RF (0,589) e AdaBoost (0,453).
                 </p>
               </div>
+
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Ganhos de otimização:</strong> quantificação das
-                  melhorias em relação aos parâmetros padrão
+                  <strong>Candidato a reestudo:</strong> modelo linear,
+                  interpretável e leve; ajustes finos em
+                  <code>C</code>, <code>class_weight</code> ou regularização
+                  (L1/L2) podem elevar a precisão sem sacrificar recall,
+                  justificando nova rodada de otimização dedicada.
                 </p>
               </div>
             </div>
@@ -59,5 +81,11 @@
         <a href="slide-46.html" class="nav-button">Próximo →</a>
       </div>
     </div>
+
+    <!-- respiro para não colar a navbar -->
+    <style>
+      .description-content { margin-bottom: 60px; }
+    </style>
+    <script src="../zoom-simple.js"></script>
   </body>
 </html>

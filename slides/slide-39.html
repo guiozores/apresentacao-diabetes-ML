@@ -1,3 +1,4 @@
+<!-- Slide 39 – Resultados de Treinamento (Parte IV)  -->
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -17,12 +18,13 @@
         <h3 class="slide-subtitle">Análise de Performance - Parte IV</h3>
 
         <div class="main-content">
+          <!-- IMAGEM + ZOOM -->
           <div class="image-section">
             <div class="image-container">
               <div class="image-wrapper">
                 <img
                   src="../assets/RESULT-TREINA-04.png"
-                  alt="Resultados de treinamento dos modelos - Parte 4"
+                  alt="Painel completo de métricas de performance"
                   class="main-image"
                   data-zoom-enabled="true"
                   data-zoom-factor="2.0"
@@ -41,20 +43,26 @@
             </div>
           </div>
 
+          <!-- DESCRIÇÃO -->
           <div class="description-section">
             <div class="description-content">
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>Curvas ROC:</strong> análise da capacidade
-                  discriminativa dos modelos
+                  <strong>Panorama de métricas:</strong> Gradient&nbsp;Boosting
+                  lidera em F1-Score e Precisão; AdaBoost apresenta o maior
+                  Recall; SVM destaca-se na Specificity; Random&nbsp;Forest
+                  alcança a melhor robustez em CV-5 (AUC = 0,909).
                 </p>
               </div>
               <div class="description-item">
                 <span class="description-bullet">•</span>
                 <p>
-                  <strong>AUC Score:</strong> comparação quantitativa da
-                  performance entre algoritmos
+                  <strong>Estabilidade vs desempenho:</strong> o gráfico
+                  “AUC&nbsp;Teste × CV-5” confirma a consistência de
+                  Random&nbsp;Forest e Gradient&nbsp;Boosting (pontos próximos à
+                  linha ideal), enquanto Decision&nbsp;Tree evidencia
+                  sobreajuste e é desclassificado.
                 </p>
               </div>
             </div>
@@ -62,6 +70,7 @@
         </div>
       </div>
 
+      <!-- NAVEGAÇÃO -->
       <div class="navigation">
         <a href="slide-38.html" class="nav-button">← Anterior</a>
         <a href="../index.html" class="nav-button">Menu</a>
